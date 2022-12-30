@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://cnh1hq4q0hm1h"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
+[ext_resource type="PackedScene" uid="uid://c2pcm33tgjwjt" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_uvkbh"]
+[ext_resource type="Script" path="res://Player/States/Spawn.gd" id="4_ffg6m"]
+[ext_resource type="Script" path="res://Player/States/Movement.gd" id="4_mh5a3"]
+[ext_resource type="Script" path="res://Player/States/Movement/Ground.gd" id="5_enkpq"]
+[ext_resource type="Script" path="res://Player/PlayerState.gd" id="5_l20rl"]
+[ext_resource type="Script" path="res://Player/States/Movement/Air.gd" id="6_glbbq"]
+[ext_resource type="Script" path="res://Player/States/Die.gd" id="9_tr2qq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgf8f"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu126"]
+size = Vector2(10, 18)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_deiey")
+skin_path = NodePath("PlayerSkin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bgf8f")
+
+[node name="PlayerSkin" parent="." instance=ExtResource("1_elpj3")]
+position = Vector2(0, -2)
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_hu126")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_uvkbh")
+initial_state = NodePath("Spawn")
+
+[node name="Spawn" type="Node" parent="StateMachine"]
+script = ExtResource("4_ffg6m")
+
+[node name="Movement" type="Node" parent="StateMachine"]
+script = ExtResource("4_mh5a3")
+
+[node name="Ground" type="Node" parent="StateMachine/Movement"]
+script = ExtResource("5_enkpq")
+
+[node name="Air" type="Node" parent="StateMachine/Movement"]
+script = ExtResource("6_glbbq")
+
+[node name="Timer" type="Timer" parent="StateMachine/Movement/Air"]
+process_callback = 0
+wait_time = 0.15
+one_shot = true
+
+[node name="Action" type="Node" parent="StateMachine"]
+script = ExtResource("5_l20rl")
+
+[node name="SlideDown" type="Node" parent="StateMachine/Action"]
+script = ExtResource("5_l20rl")
+
+[node name="Grab" type="Node" parent="StateMachine/Action"]
+script = ExtResource("5_l20rl")
+
+[node name="ClimbUp" type="Node" parent="StateMachine/Action"]
+script = ExtResource("5_l20rl")
+
+[node name="Die" type="Node" parent="StateMachine"]
+script = ExtResource("9_tr2qq")
