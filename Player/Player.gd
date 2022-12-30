@@ -44,6 +44,10 @@ func set_direction(value: float) -> void:
 	direction = value
 
 
+func set_speed(new_speed: Vector2) -> void:
+	velocity = new_speed 
+
+
 func reset_y_speed() -> void:
 	velocity.y = 0
 

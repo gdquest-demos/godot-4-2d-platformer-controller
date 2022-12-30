@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnh1hq4q0hm1h"]
+[gd_scene load_steps=13 format=3 uid="uid://cnh1hq4q0hm1h"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
 [ext_resource type="PackedScene" uid="uid://c2pcm33tgjwjt" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Player/PlayerState.gd" id="5_l20rl"]
 [ext_resource type="Script" path="res://Player/States/Movement/Air.gd" id="6_glbbq"]
 [ext_resource type="Script" path="res://Player/States/Die.gd" id="9_tr2qq"]
+[ext_resource type="Script" path="res://Player/States/Action/Dash.gd" id="9_w40pj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgf8f"]
 radius = 4.0
@@ -58,6 +59,9 @@ one_shot = true
 
 [node name="Action" type="Node" parent="StateMachine"]
 script = ExtResource("5_l20rl")
+
+[node name="Dash" type="Node" parent="StateMachine/Action"]
+script = ExtResource("9_w40pj")
 
 [node name="SlideDown" type="Node" parent="StateMachine/Action"]
 script = ExtResource("5_l20rl")

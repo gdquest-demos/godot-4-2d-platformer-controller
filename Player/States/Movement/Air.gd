@@ -44,8 +44,9 @@ func enter(msg: Dictionary = {}) -> void:
 		skin.play_animation("Fall")
 		_coyote_timer.start()
 
-	if "from_dodging" in msg:
-		player.set_velocity(Vector2.UP * player.velocity.y + Vector2.RIGHT * skin.get_facing_direction() * player.max_speed)
+	if "from_dash" in msg:
+		if player.velocity.y < 0 and player.velocity.y < -player.jump_cut_speed:
+			player.jump(player.jump_cut_speed)
 
 
 func exit() -> void:
