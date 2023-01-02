@@ -61,6 +61,10 @@ script = ExtResource("4_ffg6m")
 [node name="Movement" type="Node" parent="StateMachine"]
 script = ExtResource("4_mh5a3")
 
+[node name="ClimbCooldownTimer" type="Timer" parent="StateMachine/Movement"]
+wait_time = 3.0
+one_shot = true
+
 [node name="Ground" type="Node" parent="StateMachine/Movement"]
 script = ExtResource("5_enkpq")
 

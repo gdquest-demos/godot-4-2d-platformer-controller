@@ -43,6 +43,8 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
+	_parent.enter(msg)
+	
 	if "jumped" in msg:
 		if "direction" in msg:
 			player.set_velocity(Vector2(msg.direction * player.jump_speed, player.jump_speed))

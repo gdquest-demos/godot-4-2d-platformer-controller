@@ -46,4 +46,4 @@ func exit() -> void:
 
 
 func _on_Timer_timeout() -> void:
-	_state_machine.transition_to("Movement/Air")
+	_state_machine.transition_to("Movement/Air", { from_climb = true })
