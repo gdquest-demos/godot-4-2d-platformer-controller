@@ -43,12 +43,12 @@ script = ExtResource("3_dlkw6")
 
 [node name="RayCastTop" type="RayCast2D" parent="WallDetector"]
 position = Vector2(4, -3)
-target_position = Vector2(3, 0)
+target_position = Vector2(1, 0)
 collision_mask = 2
 
 [node name="RayCastBottom" type="RayCast2D" parent="WallDetector"]
 position = Vector2(4, 3)
-target_position = Vector2(3, 0)
+target_position = Vector2(1, 0)
 collision_mask = 2
 
 [node name="StateMachine" type="Node" parent="."]

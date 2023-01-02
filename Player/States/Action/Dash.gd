@@ -1,14 +1,12 @@
 extends PlayerState
 
-@export var speed := 350
+# To do: improve this dash using similar formulas for the jump and gravity in Player.gd
 var _direction := Vector2.ZERO
 
 
 func physics_process(delta: float) -> void:
 	if player.velocity.y < 0:
-		player.velocity.y = move_toward(player.velocity.y, 0, player.deceleration * delta)
-	
-	player.decelerate(player.deceleration, delta)
+		player.apply_gravity(delta)
 
 
 func enter(msg: Dictionary = {}) -> void:
@@ -16,7 +14,7 @@ func enter(msg: Dictionary = {}) -> void:
 		_direction = Vector2.RIGHT * skin.get_facing_direction()
 	else:
 		_direction = msg.direction
-	player.set_speed(_direction * speed)
+	player.set_velocity(Vector2.LEFT * player.jump_speed * sign(_direction.x) + Vector2.UP * player.jump_speed * sign(_direction.y))
 	
 	skin.play_animation("Dash", 2)
 	skin.connect("animation_finished", _on_PlayerSkin_animation_finished)
@@ -27,4 +25,4 @@ func exit() -> void:
 
 
 func _on_PlayerSkin_animation_finished(anim_name: String) -> void:
-	_state_machine.transition_to("Movement/Air", { from_dash = true }) # Change this later: remove 'from_dash'
+	_state_machine.transition_to("Movement/Air", { from_dash = true })

@@ -4,7 +4,7 @@ class_name Player
 @export var skin_path: NodePath
 
 @export var acceleration := 700
-@export var deceleration := 700
+@export var deceleration := 1400
 @export var max_gravity := 250
 @export var slide_speed := 50.0
 
@@ -44,10 +44,6 @@ func reset_position() -> void:
 
 func set_direction(value: float) -> void:
 	direction = value
-
-
-func set_speed(new_speed: Vector2) -> void:
-	velocity = new_speed 
 
 
 func reset_y_speed() -> void:
