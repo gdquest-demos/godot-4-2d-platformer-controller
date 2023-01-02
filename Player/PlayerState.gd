@@ -3,6 +3,7 @@ class_name PlayerState
 
 var player: Player
 var skin: PlayerSkin
+var wall_detector: WallDetector
 
 
 func _ready() -> void:
@@ -11,3 +12,4 @@ func _ready() -> void:
 	
 	player = owner
 	skin = player.skin
+	wall_detector = player.wall_detector

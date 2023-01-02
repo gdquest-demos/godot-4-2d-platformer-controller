@@ -1,19 +1,14 @@
-[gd_scene load_steps=55 format=3 uid="uid://c2pcm33tgjwjt"]
+[gd_scene load_steps=57 format=3 uid="uid://c2pcm33tgjwjt"]
 
 [ext_resource type="Texture2D" uid="uid://dhlfhsr7lsrrn" path="res://_Placeholders/Buck Borris/attacks.png" id="1_jxpmo"]
 [ext_resource type="Script" path="res://Player/PlayerSkin/PlayerSkin.gd" id="1_lberd"]
 [ext_resource type="Texture2D" uid="uid://b1leoukmrlx24" path="res://_Placeholders/Buck Borris/roll.png" id="2_6ogtl"]
 [ext_resource type="Texture2D" uid="uid://c7a2paovr23dp" path="res://_Placeholders/Buck Borris/damaged.png" id="2_863oy"]
+[ext_resource type="Texture2D" uid="uid://cb1yowjpi5mtx" path="res://_Placeholders/Buck Borris/idle.png" id="3_dyp2a"]
 [ext_resource type="Texture2D" uid="uid://4728or6wpd3j" path="res://_Placeholders/Buck Borris/jump.png" id="4_6wil8"]
-[ext_resource type="Texture2D" uid="uid://bd8jp366ytbcu" path="res://assets/lucy/lucy_sprite.png" id="5_8dcng"]
 [ext_resource type="Texture2D" uid="uid://b1tyq4spph8l8" path="res://_Placeholders/Buck Borris/land.png" id="5_ecx0d"]
-[ext_resource type="Texture2D" uid="uid://cnfmv2timbfkd" path="res://assets/lucy/idle/000.png" id="5_t0vhb"]
-[ext_resource type="Texture2D" uid="uid://bshiy3rir5guf" path="res://assets/lucy/idle/001.png" id="6_27mrf"]
 [ext_resource type="Texture2D" uid="uid://dpeq4dvqa0o64" path="res://_Placeholders/Buck Borris/run.png" id="6_hw588"]
 [ext_resource type="Texture2D" uid="uid://b71pq7wt5lpk2" path="res://_Placeholders/Buck Borris/appear.png" id="7_7a686"]
-[ext_resource type="Texture2D" uid="uid://epvhtx8244wh" path="res://assets/lucy/idle/002.png" id="7_ngc3n"]
-[ext_resource type="Texture2D" uid="uid://ch5p6c3vbq7wf" path="res://assets/lucy/idle/003.png" id="8_4kp0i"]
-[ext_resource type="Texture2D" uid="uid://d1c67dxb8m128" path="res://assets/lucy/idle/005.png" id="9_hemsy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tb0n1"]
 atlas = ExtResource("1_jxpmo")
@@ -78,6 +73,26 @@ region = Rect2(30, 23, 30, 23)
 [sub_resource type="AtlasTexture" id="AtlasTexture_abefx"]
 atlas = ExtResource("1_jxpmo")
 region = Rect2(30, 230, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4kfd"]
+atlas = ExtResource("3_dyp2a")
+region = Rect2(30, 0, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0djb2"]
+atlas = ExtResource("3_dyp2a")
+region = Rect2(30, 23, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrovh"]
+atlas = ExtResource("3_dyp2a")
+region = Rect2(30, 46, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_echma"]
+atlas = ExtResource("3_dyp2a")
+region = Rect2(30, 69, 30, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhrom"]
+atlas = ExtResource("3_dyp2a")
+region = Rect2(30, 92, 30, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7r011"]
 atlas = ExtResource("4_6wil8")
@@ -145,7 +160,7 @@ animations = [{
 "name": &"Grab",
 "speed": 5.0
 }, {
-"frames": [ExtResource("5_8dcng"), ExtResource("5_t0vhb"), ExtResource("6_27mrf"), ExtResource("7_ngc3n"), ExtResource("8_4kp0i"), ExtResource("9_hemsy")],
+"frames": [SubResource("AtlasTexture_m4kfd"), SubResource("AtlasTexture_0djb2"), SubResource("AtlasTexture_mrovh"), SubResource("AtlasTexture_echma"), SubResource("AtlasTexture_hhrom")],
 "loop": true,
 "name": &"Idle",
 "speed": 10.0
@@ -199,6 +214,9 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
+
+[sub_resource type="Animation" id="Animation_cs82b"]
+resource_name = "Crouch"
 
 [sub_resource type="Animation" id="Animation_vgmfv"]
 resource_name = "Dash"
@@ -317,6 +335,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_kputj"]
 resource_name = "Idle"
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -337,10 +356,10 @@ tracks/1/path = NodePath("SpriteContainer/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_k3xtf"]
@@ -456,6 +475,34 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_vcqfu"]
+resource_name = "SlideDown"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Dash"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteContainer/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_f8kbk"]
 resource_name = "Spawn"
 length = 0.4
@@ -487,6 +534,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_routw"]
 _data = {
 "ClimbUp": SubResource("Animation_hbrbs"),
+"Crouch": SubResource("Animation_cs82b"),
 "Dash": SubResource("Animation_vgmfv"),
 "Die": SubResource("Animation_ejjys"),
 "Fall": SubResource("Animation_lfr25"),
@@ -496,6 +544,7 @@ _data = {
 "Land": SubResource("Animation_e60w1"),
 "RESET": SubResource("Animation_0oj1c"),
 "Run": SubResource("Animation_1l7fm"),
+"SlideDown": SubResource("Animation_vcqfu"),
 "Spawn": SubResource("Animation_f8kbk")
 }
 
@@ -505,7 +554,7 @@ script = ExtResource("1_lberd")
 [node name="SpriteContainer" type="Marker2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer"]
-position = Vector2(0, -1)
+position = Vector2(4, 0)
 frames = SubResource("SpriteFrames_jlfip")
 animation = &"Idle"
 

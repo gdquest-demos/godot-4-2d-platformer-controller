@@ -3,20 +3,22 @@ class_name Player
 
 @export var skin_path: NodePath
 
-@export var acceleration: float = 700
-@export var deceleration: float = 700
-@export var max_gravity: float = 500
+@export var acceleration := 700
+@export var deceleration := 700
+@export var max_gravity := 250
+@export var slide_speed := 50.0
 
-@export var jump_distance: float = 80
-@export var jump_height: float = 50
-@export var jump_time_to_peak: float = 0.37
-@export var jump_time_to_descent: float = 0.3
-@export var jump_cut_value: float = 15
+@export var jump_distance := 80
+@export var jump_height := 50
+@export var jump_time_to_peak := 0.37
+@export var jump_time_to_descent := 0.3
+@export var jump_cut_value := 15
 
-var direction: float = 0 : set = set_direction
+var direction := 0 : set = set_direction
 
 @onready var skin: PlayerSkin = get_node(skin_path)
 @onready var hurt_box: Area2D = $HurtBox
+@onready var wall_detector: WallDetector = $WallDetector
 
 @onready var max_speed: float = jump_distance / (jump_time_to_peak + jump_time_to_descent)
 @onready var jump_speed: float = (-2 * jump_height) / jump_time_to_peak
@@ -57,15 +59,15 @@ func reset_speed() -> void:
 	velocity.y = 0
 
 
-func jump(curr_jump_speed: float, curr_reset_y_speed: bool = false) -> void:
-	if curr_reset_y_speed:
+func jump(jump_speed: float, reset_y_speed: bool = false) -> void:
+	if reset_y_speed:
 		reset_y_speed()
-	velocity.y = -curr_jump_speed
+	velocity.y = -jump_speed
 
 
-func move(curr_acceleration: float, curr_direction: float, curr_max_speed: float, delta: float) -> void:
-	velocity.x += curr_acceleration * curr_direction * delta
-	velocity.x = clamp(velocity.x, -curr_max_speed, curr_max_speed)
+func move(acceleration: float, direction: float, max_speed: float, delta: float) -> void:
+	velocity.x += acceleration * direction * delta
+	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 
 
 func move_y(curr_acceleration: float, curr_direction: float, curr_max_speed: float, delta: float) -> void:
@@ -76,8 +78,8 @@ func move_y(curr_acceleration: float, curr_direction: float, curr_max_speed: flo
 	velocity.y = clamp(velocity.y, -curr_max_speed, curr_max_speed)
 
 
-func decelerate(curr_deceleration: float, delta: float) -> void:
-	velocity.x = move_toward(velocity.x, 0, curr_deceleration * delta)
+func decelerate(deceleration: float, delta: float) -> void:
+	velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 
 
 func apply_gravity(delta: float) -> void:

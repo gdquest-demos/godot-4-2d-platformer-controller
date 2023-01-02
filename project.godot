@@ -33,13 +33,19 @@ _global_script_classes=[{
 "class": &"StateMachine",
 "language": &"GDScript",
 "path": "res://StateMachine/StateMachine.gd"
+}, {
+"base": "Marker2D",
+"class": &"WallDetector",
+"language": &"GDScript",
+"path": "res://Player/WallDetector.gd"
 }]
 _global_script_class_icons={
 "Player": "",
 "PlayerSkin": "",
 "PlayerState": "",
 "State": "res://StateMachine/State.svg",
-"StateMachine": "res://StateMachine/StateMachine.svg"
+"StateMachine": "res://StateMachine/StateMachine.svg",
+"WallDetector": ""
 }
 
 [application]

@@ -9,6 +9,7 @@ func physics_process(delta: float) -> void:
 	if player.direction:
 		skin.set_direction(player.direction)
 		skin.play_animation("Run")
+		wall_detector.set_direction(player.direction)
 	else:
 		skin.play_animation("Idle")
 
@@ -18,11 +19,3 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to("Movement/Air", { jumped = true })
 
 	_parent.physics_process(delta)
-
-
-func enter(msg: Dictionary = {}) -> void:
-	_parent.enter(msg)
-
-
-func exit() -> void:
-	_parent.exit()

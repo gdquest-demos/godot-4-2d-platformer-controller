@@ -27,4 +27,4 @@ func exit() -> void:
 
 
 func _on_PlayerSkin_animation_finished(anim_name: String) -> void:
-	_state_machine.transition_to("Movement/Air", { from_dash = true }) 
+	_state_machine.transition_to("Movement/Air", { from_dash = true }) # Change this later: remove 'from_dash'
