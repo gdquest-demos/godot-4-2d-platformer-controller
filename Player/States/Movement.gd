@@ -1,6 +1,8 @@
 extends PlayerState
 
 var input_direction := Vector2.ZERO
+var can_dash := true
+
 @onready var climb_cooldown_timer: Timer = $ClimbCooldownTimer
 
 func physics_process(delta: float) -> void:

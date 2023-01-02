@@ -31,7 +31,8 @@ func physics_process(delta: float) -> void:
 			return
 	else:
 		skin.play_animation("Fall")
-		if Input.is_action_just_pressed("dash"):
+		if Input.is_action_just_pressed("dash") and _parent.can_dash:
+			_parent.can_dash = false
 			_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction })
 			return
 

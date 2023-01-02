@@ -24,3 +24,7 @@ func physics_process(delta: float) -> void:
 		return
 		
 	_parent.physics_process(delta)
+
+
+func enter(msg: Dictionary = {}) -> void:
+	_parent.can_dash = true
