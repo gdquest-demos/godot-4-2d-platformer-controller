@@ -15,6 +15,9 @@ func enter(msg: Dictionary = {}) -> void:
 	else:
 		_direction = msg.direction
 	player.set_velocity(Vector2.LEFT * player.jump_speed * sign(_direction.x) + Vector2.UP * player.jump_speed * sign(_direction.y))
+	player.set_direction(_direction.x)
+	skin.set_direction(_direction.x)
+	wall_detector.set_direction(_direction.x)
 	
 	skin.play_animation("Dash", 2)
 	skin.connect("animation_finished", _on_PlayerSkin_animation_finished)

@@ -30,6 +30,7 @@ func physics_process(delta: float) -> void:
 			_state_machine.transition_to("Movement/Air", { jumped = true, direction = wall_detector.get_direction() })
 			return
 	else:
+		skin.play_animation("Fall")
 		if Input.is_action_just_pressed("dash"):
 			_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction })
 			return
