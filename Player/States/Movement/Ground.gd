@@ -6,7 +6,7 @@ extends PlayerState
 func physics_process(delta: float) -> void:
 	if player.direction:
 		skin.set_direction(player.direction)
-		skin.play_animation("Run")
+		skin.play_animation("Run", _parent.x_input)
 		wall_detector.set_direction(player.direction)
 	else:
 		skin.play_animation("Idle")

@@ -1,16 +1,18 @@
 extends PlayerState
 
 var input_direction := Vector2.ZERO
+var x_input := 0.0
 var can_dash := true
 
 @onready var _climb_cooldown_timer: Timer = $ClimbCooldownTimer
 
 
 func physics_process(delta: float) -> void:
-	player.set_direction(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
+	x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	player.set_direction(x_input)
 	
 	if player.direction != 0:
-		player.move(player.acceleration, player.direction, player.max_speed, delta)
+		player.move(player.acceleration, player.direction, player.max_speed * x_input, delta)
 	
 	if player.is_on_floor() and player.direction == 0:
 		player.decelerate(player.deceleration, delta)

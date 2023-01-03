@@ -10,9 +10,15 @@ signal animation_finished(anim_name)
 
 func _ready() -> void:
 	_animation_player.connect("animation_finished", _on_animation_finished)
-	
+
+
+func set_animation_speed(speed: float) -> void:
+	play_animation(_animation_player.current_animation, speed)
+
+
 func set_rainbow_intensity(value):
 	_animated_sprite.material.set_shader_parameter("intensity", value)
+
 
 func set_direction(x_input: float) -> void:
 	if x_input != 0:
@@ -24,16 +30,9 @@ func get_facing_direction() -> int:
 
 
 func play_animation(animation_name: String, animation_speed: float = 1.0, from_position: Vector2 = Vector2.ZERO) -> void:
-	if _animation_player.is_playing() and _animation_player.current_animation == animation_name:
-		return
-
 	if from_position != Vector2.ZERO:
 		position = from_position
 	_animation_player.play(animation_name, -1, animation_speed)
-
-
-func set_animation_speed(speed: float) -> void:
-	play_animation(_animation_player.current_animation, speed)
 
 
 func _on_animation_finished(anim_name: String) -> void:
