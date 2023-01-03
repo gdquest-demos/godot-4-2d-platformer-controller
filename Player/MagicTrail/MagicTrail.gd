@@ -1,9 +1,9 @@
 extends Line2D
 class_name MagicTrail
 
-# point in global space
 @export var time_curve: Curve 
 
+# point in global space
 var p_g: PackedVector2Array = []
 var resolution := 10
 var _is_active = null : set = set_active
