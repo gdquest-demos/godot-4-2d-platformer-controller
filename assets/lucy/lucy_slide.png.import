@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1c67dxb8m128"
-path="res://.godot/imported/005.png-9cc8d9fc9e550536801cb8f5a4a2f451.ctex"
+uid="uid://mp7d4rm1tsv8"
+path="res://.godot/imported/lucy_slide.png-b2df8bbdd2b93d452002eaab3ae70df4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lucy/idle/005.png"
-dest_files=["res://.godot/imported/005.png-9cc8d9fc9e550536801cb8f5a4a2f451.ctex"]
+source_file="res://assets/lucy/lucy_slide.png"
+dest_files=["res://.godot/imported/lucy_slide.png-b2df8bbdd2b93d452002eaab3ae70df4.ctex"]
 
 [params]
 

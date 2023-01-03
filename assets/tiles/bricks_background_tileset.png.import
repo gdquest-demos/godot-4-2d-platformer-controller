@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxslh8teup70q"
-path="res://.godot/imported/000.png-74fed72826c00b0cb6085420f9d7863f.ctex"
+uid="uid://3xuf0unpvj3c"
+path="res://.godot/imported/bricks_background_tileset.png-97509526e8460f68903f803a328349ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lucy/idle/000.png"
-dest_files=["res://.godot/imported/000.png-74fed72826c00b0cb6085420f9d7863f.ctex"]
+source_file="res://assets/tiles/bricks_background_tileset.png"
+dest_files=["res://.godot/imported/bricks_background_tileset.png-97509526e8460f68903f803a328349ac.ctex"]
 
 [params]
 
