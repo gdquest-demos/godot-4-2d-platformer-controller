@@ -1,14 +1,26 @@
-[gd_scene load_steps=57 format=3 uid="uid://c2pcm33tgjwjt"]
+[gd_scene load_steps=52 format=3 uid="uid://c2pcm33tgjwjt"]
 
 [ext_resource type="Texture2D" uid="uid://dhlfhsr7lsrrn" path="res://_Placeholders/Buck Borris/attacks.png" id="1_jxpmo"]
 [ext_resource type="Script" path="res://Player/PlayerSkin/PlayerSkin.gd" id="1_lberd"]
-[ext_resource type="Texture2D" uid="uid://b1leoukmrlx24" path="res://_Placeholders/Buck Borris/roll.png" id="2_6ogtl"]
 [ext_resource type="Texture2D" uid="uid://c7a2paovr23dp" path="res://_Placeholders/Buck Borris/damaged.png" id="2_863oy"]
-[ext_resource type="Texture2D" uid="uid://cb1yowjpi5mtx" path="res://_Placeholders/Buck Borris/idle.png" id="3_dyp2a"]
-[ext_resource type="Texture2D" uid="uid://4728or6wpd3j" path="res://_Placeholders/Buck Borris/jump.png" id="4_6wil8"]
+[ext_resource type="Texture2D" uid="uid://c7bssafnyceuk" path="res://assets/lucy/dash/000.png" id="3_ygm1t"]
+[ext_resource type="Texture2D" uid="uid://nyuhbohipjdr" path="res://assets/lucy/dash/001.png" id="4_oawk2"]
+[ext_resource type="Texture2D" uid="uid://bripcwowku7lp" path="res://assets/lucy/dash/002.png" id="5_0gek6"]
+[ext_resource type="Texture2D" uid="uid://cxslh8teup70q" path="res://assets/lucy/idle/000.png" id="5_3ypc0"]
 [ext_resource type="Texture2D" uid="uid://b1tyq4spph8l8" path="res://_Placeholders/Buck Borris/land.png" id="5_ecx0d"]
-[ext_resource type="Texture2D" uid="uid://dpeq4dvqa0o64" path="res://_Placeholders/Buck Borris/run.png" id="6_hw588"]
+[ext_resource type="Texture2D" uid="uid://1w6y4aov8x8i" path="res://assets/lucy/idle/001.png" id="6_fchgq"]
+[ext_resource type="Texture2D" uid="uid://cp5ysokccfxcr" path="res://assets/lucy/dash/003.png" id="6_w46dk"]
+[ext_resource type="Texture2D" uid="uid://c3i67gf5xtur1" path="res://assets/lucy/idle/002.png" id="7_6ii12"]
 [ext_resource type="Texture2D" uid="uid://b71pq7wt5lpk2" path="res://_Placeholders/Buck Borris/appear.png" id="7_7a686"]
+[ext_resource type="Texture2D" uid="uid://ckdstkswgy7yp" path="res://assets/lucy/idle/003.png" id="8_daia3"]
+[ext_resource type="Texture2D" uid="uid://byi5d5liq08bu" path="res://assets/lucy/walk/000.png" id="8_yuvf2"]
+[ext_resource type="Texture2D" uid="uid://cqhwdqlpfm50e" path="res://assets/lucy/walk/001.png" id="9_c00j0"]
+[ext_resource type="Texture2D" uid="uid://d07un6ita4esd" path="res://assets/lucy/idle/004.png" id="9_ppr1n"]
+[ext_resource type="Texture2D" uid="uid://7hdpmnwe0m7k" path="res://assets/lucy/walk/002.png" id="10_d2i8p"]
+[ext_resource type="Texture2D" uid="uid://c030uv7w2bgs3" path="res://assets/lucy/walk/003.png" id="11_d5l0o"]
+[ext_resource type="Texture2D" uid="uid://dw8wfsxexlcit" path="res://assets/lucy/walk/004.png" id="12_c4wlp"]
+[ext_resource type="Texture2D" uid="uid://pk8wb3owg84f" path="res://assets/lucy/walk/005.png" id="13_tvqvs"]
+[ext_resource type="Texture2D" uid="uid://mp7d4rm1tsv8" path="res://assets/lucy/lucy_slide.png" id="20_y83x1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tb0n1"]
 atlas = ExtResource("1_jxpmo")
@@ -34,34 +46,6 @@ region = Rect2(30, 230, 30, 23)
 atlas = ExtResource("1_jxpmo")
 region = Rect2(30, 253, 30, 23)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2lx8r"]
-atlas = ExtResource("2_6ogtl")
-region = Rect2(30, 0, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o82sx"]
-atlas = ExtResource("2_6ogtl")
-region = Rect2(30, 23, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i6116"]
-atlas = ExtResource("2_6ogtl")
-region = Rect2(48, 46, 24, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3gu8"]
-atlas = ExtResource("2_6ogtl")
-region = Rect2(48, 69, 24, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tnowx"]
-atlas = ExtResource("2_6ogtl")
-region = Rect2(48, 92, 24, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bgwjr"]
-atlas = ExtResource("2_6ogtl")
-region = Rect2(60, 115, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wx2pv"]
-atlas = ExtResource("2_6ogtl")
-region = Rect2(60, 138, 30, 23)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0w5e"]
 atlas = ExtResource("2_863oy")
 region = Rect2(30, 0, 30, 23)
@@ -74,30 +58,6 @@ region = Rect2(30, 23, 30, 23)
 atlas = ExtResource("1_jxpmo")
 region = Rect2(30, 230, 30, 23)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m4kfd"]
-atlas = ExtResource("3_dyp2a")
-region = Rect2(30, 0, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0djb2"]
-atlas = ExtResource("3_dyp2a")
-region = Rect2(30, 23, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mrovh"]
-atlas = ExtResource("3_dyp2a")
-region = Rect2(30, 46, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_echma"]
-atlas = ExtResource("3_dyp2a")
-region = Rect2(30, 69, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhrom"]
-atlas = ExtResource("3_dyp2a")
-region = Rect2(30, 92, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7r011"]
-atlas = ExtResource("4_6wil8")
-region = Rect2(30, 0, 30, 23)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4sb5"]
 atlas = ExtResource("5_ecx0d")
 region = Rect2(30, 0, 30, 23)
@@ -105,22 +65,6 @@ region = Rect2(30, 0, 30, 23)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gopp"]
 atlas = ExtResource("5_ecx0d")
 region = Rect2(30, 23, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0iyjh"]
-atlas = ExtResource("6_hw588")
-region = Rect2(30, 0, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5bqjb"]
-atlas = ExtResource("6_hw588")
-region = Rect2(30, 23, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_engdt"]
-atlas = ExtResource("6_hw588")
-region = Rect2(30, 46, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_khsmo"]
-atlas = ExtResource("6_hw588")
-region = Rect2(30, 69, 30, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cm62"]
 atlas = ExtResource("7_7a686")
@@ -145,7 +89,7 @@ animations = [{
 "name": &"ClimbUp",
 "speed": 15.0
 }, {
-"frames": [SubResource("AtlasTexture_2lx8r"), SubResource("AtlasTexture_o82sx"), SubResource("AtlasTexture_i6116"), SubResource("AtlasTexture_a3gu8"), SubResource("AtlasTexture_tnowx"), SubResource("AtlasTexture_bgwjr"), SubResource("AtlasTexture_wx2pv")],
+"frames": [ExtResource("6_w46dk"), ExtResource("5_0gek6"), ExtResource("4_oawk2"), ExtResource("3_ygm1t")],
 "loop": false,
 "name": &"Dash",
 "speed": 10.0
@@ -160,12 +104,12 @@ animations = [{
 "name": &"Grab",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_m4kfd"), SubResource("AtlasTexture_0djb2"), SubResource("AtlasTexture_mrovh"), SubResource("AtlasTexture_echma"), SubResource("AtlasTexture_hhrom")],
+"frames": [ExtResource("9_ppr1n"), ExtResource("8_daia3"), ExtResource("7_6ii12"), ExtResource("6_fchgq"), ExtResource("5_3ypc0")],
 "loop": true,
 "name": &"Idle",
 "speed": 10.0
 }, {
-"frames": [SubResource("AtlasTexture_7r011")],
+"frames": [ExtResource("11_d5l0o")],
 "loop": false,
 "name": &"Jump",
 "speed": 10.0
@@ -175,10 +119,15 @@ animations = [{
 "name": &"Land",
 "speed": 10.0
 }, {
-"frames": [SubResource("AtlasTexture_0iyjh"), SubResource("AtlasTexture_5bqjb"), SubResource("AtlasTexture_engdt"), SubResource("AtlasTexture_khsmo")],
+"frames": [ExtResource("13_tvqvs"), ExtResource("12_c4wlp"), ExtResource("11_d5l0o"), ExtResource("10_d2i8p"), ExtResource("9_c00j0"), ExtResource("8_yuvf2")],
 "loop": true,
 "name": &"Run",
 "speed": 15.0
+}, {
+"frames": [ExtResource("20_y83x1")],
+"loop": true,
+"name": &"Slide",
+"speed": 5.0
 }, {
 "frames": [SubResource("AtlasTexture_8cm62"), SubResource("AtlasTexture_fu1y4"), SubResource("AtlasTexture_oefuv"), SubResource("AtlasTexture_qrsm8")],
 "loop": false,
@@ -220,7 +169,8 @@ resource_name = "Crouch"
 
 [sub_resource type="Animation" id="Animation_vgmfv"]
 resource_name = "Dash"
-length = 0.7
+length = 0.6
+loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -241,10 +191,10 @@ tracks/1/path = NodePath("SpriteContainer/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_ejjys"]
@@ -335,7 +285,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_kputj"]
 resource_name = "Idle"
-length = 0.5
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -356,10 +306,10 @@ tracks/1/path = NodePath("SpriteContainer/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4]
+"values": [0, 1, 0, 2, 3, 2, 4, 0]
 }
 
 [sub_resource type="Animation" id="Animation_k3xtf"]
@@ -447,9 +397,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_1l7fm"]
 resource_name = "Run"
-length = 0.2
+length = 0.6
 loop_mode = 1
-step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -469,10 +418,10 @@ tracks/1/path = NodePath("SpriteContainer/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_vcqfu"]
@@ -488,7 +437,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Dash"]
+"values": [&"Slide"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -554,7 +503,6 @@ script = ExtResource("1_lberd")
 [node name="SpriteContainer" type="Marker2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer"]
-position = Vector2(4, 0)
 frames = SubResource("SpriteFrames_jlfip")
 animation = &"Idle"
 

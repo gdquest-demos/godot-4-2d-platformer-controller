@@ -8,6 +8,8 @@ class_name Player
 @export var max_gravity := 250
 @export var slide_speed := 50.0
 
+@export var dash_duration := 0.25
+
 @export var jump_distance := 80
 @export var jump_height := 50
 @export var jump_time_to_peak := 0.37
