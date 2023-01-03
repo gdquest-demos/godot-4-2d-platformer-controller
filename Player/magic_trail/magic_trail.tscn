@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://dq45ic78uv1f2"]
+
+[ext_resource type="Shader" path="res://Player/magic_trail/magic_trail.gdshader" id="1_hperf"]
+[ext_resource type="Script" path="res://Player/magic_trail/magic_trail.gd" id="1_o6uwh"]
+
+[sub_resource type="Gradient" id="Gradient_maa3m"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 0.309804, 0.631373, 1, 0.992691, 0.798107, 0, 1, 0.245402, 0.62206, 1, 1, 1, 0.309804, 0.631373, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_duny8"]
+gradient = SubResource("Gradient_maa3m")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ixe7k"]
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_04ha3"]
+seamless = true
+noise = SubResource("FastNoiseLite_ixe7k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kosiu"]
+shader = ExtResource("1_hperf")
+shader_parameter/noise_sampler = SubResource("NoiseTexture2D_04ha3")
+shader_parameter/gradient_color = SubResource("GradientTexture1D_duny8")
+
+[sub_resource type="Curve" id="Curve_ejknv"]
+_data = [Vector2(0, 0.05), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.53333, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_hs8bo"]
+_data = [Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cwnxo"]
+curve = SubResource("Curve_hs8bo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xne0d"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 16.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.2
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_cwnxo")
+
+[node name="MagicTrail" type="Line2D"]
+material = SubResource("ShaderMaterial_kosiu")
+points = PackedVector2Array(-22, 0, 22, 0)
+texture_mode = 2
+script = ExtResource("1_o6uwh")
+time_curve = SubResource("Curve_ejknv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_xne0d")
+lifetime = 0.45
+one_shot = true

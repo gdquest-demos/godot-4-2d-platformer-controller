@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfdpjk56msdd7"]
+[gd_scene load_steps=16 format=3 uid="uid://cfdpjk56msdd7"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
 [ext_resource type="PackedScene" uid="uid://c2pcm33tgjwjt" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
+[ext_resource type="PackedScene" uid="uid://dq45ic78uv1f2" path="res://Player/magic_trail/magic_trail.tscn" id="2_pl23o"]
 [ext_resource type="Script" path="res://Player/WallDetector.gd" id="3_dlkw6"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_uvkbh"]
 [ext_resource type="Script" path="res://Player/States/Spawn.gd" id="4_ffg6m"]
@@ -24,6 +25,8 @@ size = Vector2(10, 18)
 collision_mask = 2
 script = ExtResource("1_deiey")
 skin_path = NodePath("PlayerSkin")
+
+[node name="MagicTrail" parent="." instance=ExtResource("2_pl23o")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_bgf8f")
@@ -91,3 +94,5 @@ one_shot = true
 
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource("9_tr2qq")
+
+[connection signal="dashing_update" from="." to="MagicTrail" method="set_active"]

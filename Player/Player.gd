@@ -31,6 +31,7 @@ var direction := 0 : set = set_direction
 
 @onready var _state_machine: StateMachine = $StateMachine
 
+signal dashing_update(state : bool)
 
 func _ready() -> void:
 	hurt_box.connect("body_entered", _on_HurtBox_body_entered)

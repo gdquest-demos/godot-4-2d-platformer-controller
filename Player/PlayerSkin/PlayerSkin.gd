@@ -7,11 +7,14 @@ signal attack_ended
 
 @onready var _sprite_container: Marker2D = $SpriteContainer
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _animated_sprite: AnimatedSprite2D = $SpriteContainer/AnimatedSprite2D
 
 
 func _ready() -> void:
 	_animation_player.connect("animation_finished", _on_animation_finished)
-
+	
+func set_rainbow_intensity(value):
+	_animated_sprite.material.set_shader_parameter("intensity", value)
 
 func set_direction(x_input: float) -> void:
 	if x_input != 0:
