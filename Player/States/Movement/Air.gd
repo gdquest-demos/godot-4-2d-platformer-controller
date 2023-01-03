@@ -18,13 +18,16 @@ func unhandled_input(event: InputEvent) -> void:
 
 func physics_process(delta: float) -> void:
 	var x_input_direction: float = sign(Input.get_axis("move_left", "move_right"))
-
+	
+	wall_detector.set_direction(sign(player.velocity.x))
+	
 	if player.is_on_ceiling():
 		player.reset_y_speed()
 
 	if wall_detector.is_against_wall() and x_input_direction == wall_detector.get_direction() and player.velocity.y > 0:
 		player.move_y(player.acceleration, 1, player.slide_speed, delta)
 		skin.play_animation("SlideDown")
+		skin.set_direction(wall_detector.get_direction())
 		
 		if Input.is_action_just_pressed("jump"):
 			_state_machine.transition_to("Movement/Air", { jumped = true, direction = wall_detector.get_direction() })
@@ -50,6 +53,7 @@ func enter(msg: Dictionary = {}) -> void:
 	if "jumped" in msg:
 		if "direction" in msg:
 			player.set_velocity(Vector2(msg.direction * player.jump_speed, player.jump_speed))
+			skin.set_direction(msg.direction)
 		else:
 			player.jump(-player.jump_speed)
 		skin.play_animation("Jump")
