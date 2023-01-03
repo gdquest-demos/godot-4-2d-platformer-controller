@@ -1,6 +1,5 @@
 extends PlayerState
 
-# To do: improve this dash using similar formulas for the jump and gravity in Player.gd
 var _direction := Vector2.ZERO
 
 @onready var _timer: Timer = $Timer

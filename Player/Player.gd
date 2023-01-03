@@ -39,12 +39,12 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func reset_position() -> void:
-	global_position = respawn_position
-
-
 func set_direction(value: float) -> void:
 	direction = value
+
+
+func reset_position() -> void:
+	global_position = respawn_position
 
 
 func reset_y_speed() -> void:
@@ -56,9 +56,7 @@ func reset_speed() -> void:
 	velocity.y = 0
 
 
-func jump(jump_speed: float, reset_y_speed: bool = false) -> void:
-	if reset_y_speed:
-		reset_y_speed()
+func jump(jump_speed: float) -> void:
 	velocity.y = -jump_speed
 
 
@@ -67,12 +65,12 @@ func move(acceleration: float, direction: float, max_speed: float, delta: float)
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 
 
-func move_y(curr_acceleration: float, curr_direction: float, curr_max_speed: float, delta: float) -> void:
-	if curr_direction != 0:
-		velocity.y += curr_acceleration * curr_direction * delta
+func move_y(acceleration: float, direction: float, max_speed: float, delta: float) -> void:
+	if direction != 0:
+		velocity.y += acceleration * direction * delta
 	else:
-		velocity.y = move_toward(velocity.y, 0, curr_acceleration * delta)
-	velocity.y = clamp(velocity.y, -curr_max_speed, curr_max_speed)
+		velocity.y = move_toward(velocity.y, 0, acceleration * delta)
+	velocity.y = clamp(velocity.y, -max_speed, max_speed)
 
 
 func decelerate(deceleration: float, delta: float) -> void:

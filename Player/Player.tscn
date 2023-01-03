@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1lde6wptcicd"]
+[gd_scene load_steps=16 format=3 uid="uid://c3n71t3wf11gw"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
-[ext_resource type="PackedScene" uid="uid://c2pcm33tgjwjt" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
-[ext_resource type="PackedScene" uid="uid://b3ygmeysbo87e" path="res://Player/magic_trail/MagicTrail.tscn" id="2_pl23o"]
+[ext_resource type="PackedScene" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
+[ext_resource type="PackedScene" path="res://Player/MagicTrail/MagicTrail.tscn" id="2_pl23o"]
 [ext_resource type="Script" path="res://Player/WallDetector.gd" id="3_dlkw6"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_uvkbh"]
 [ext_resource type="Script" path="res://Player/States/Spawn.gd" id="4_ffg6m"]

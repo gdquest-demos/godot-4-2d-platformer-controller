@@ -5,17 +5,6 @@ var _jump_released: bool = false
 @onready var _coyote_timer: Timer = $Timer
 
 
-func unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("jump"):
-		if _coyote_timer.time_left > 0:
-			_state_machine.transition_to("Movement/Air", { jumped = true })
-
-	if event.is_action_released("jump"):
-		if player.velocity.y < 0 and player.velocity.y < -player.jump_cut_speed and not _jump_released:
-			player.jump(player.jump_cut_speed)
-			_jump_released = true
-
-
 func physics_process(delta: float) -> void:
 	var x_input_direction: float = sign(Input.get_axis("move_left", "move_right"))
 	
@@ -42,6 +31,17 @@ func physics_process(delta: float) -> void:
 	if player.is_on_floor():
 		_state_machine.transition_to("Movement/Ground")
 		return
+	
+	if Input.is_action_just_pressed("jump"):
+		if _coyote_timer.time_left > 0:
+			_state_machine.transition_to("Movement/Air", { jumped = true })
+			return
+	
+	if Input.is_action_just_released("jump"):
+		if player.velocity.y < 0 and player.velocity.y < -player.jump_cut_speed and not _jump_released:
+			player.jump(player.jump_cut_speed)
+			_jump_released = true
+			return
 	
 	player.move(player.acceleration, player.direction, player.max_speed, delta)
 	_parent.physics_process(delta)

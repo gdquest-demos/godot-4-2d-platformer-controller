@@ -3,10 +3,6 @@ extends PlayerState
 @onready var _dash_cooldown_timer: Timer = $DashCooldownTimer
 
 
-func unhandled_input(event: InputEvent) -> void:
-	_parent.unhandled_input(event)
-
-
 func physics_process(delta: float) -> void:
 	if player.direction:
 		skin.set_direction(player.direction)

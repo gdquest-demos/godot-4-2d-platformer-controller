@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3ygmeysbo87e"]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="Shader" path="res://Player/magic_trail/MagicTrail.gdshader" id="1_sx7ky"]
-[ext_resource type="Script" path="res://Player/magic_trail/MagicTrail.gd" id="2_f3yj5"]
+[ext_resource type="Shader" path="res://Player/MagicTrail/MagicTrail.gdshader" id="1_sx7ky"]
+[ext_resource type="Script" path="res://Player/MagicTrail/MagicTrail.gd" id="2_f3yj5"]
 
 [sub_resource type="Gradient" id="Gradient_maa3m"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)

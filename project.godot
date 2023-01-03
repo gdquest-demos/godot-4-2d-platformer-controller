@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "Line2D",
 "class": &"MagicTrail",
 "language": &"GDScript",
-"path": "res://Player/magic_trail/MagicTrail.gd"
+"path": "res://Player/MagicTrail/MagicTrail.gd"
 }, {
 "base": "CharacterBody2D",
 "class": &"Player",

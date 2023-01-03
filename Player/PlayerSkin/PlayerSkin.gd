@@ -2,8 +2,6 @@ extends Node2D
 class_name PlayerSkin
 
 signal animation_finished(anim_name)
-signal attack_started
-signal attack_ended
 
 @onready var _sprite_container: Marker2D = $SpriteContainer
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer

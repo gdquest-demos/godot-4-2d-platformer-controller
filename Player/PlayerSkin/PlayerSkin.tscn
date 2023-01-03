@@ -1,9 +1,9 @@
-[gd_scene load_steps=56 format=3 uid="uid://c2pcm33tgjwjt"]
+[gd_scene load_steps=57 format=3 uid="uid://c85thnm0n175x"]
 
 [ext_resource type="Texture2D" uid="uid://dhlfhsr7lsrrn" path="res://_Placeholders/Buck Borris/attacks.png" id="1_jxpmo"]
 [ext_resource type="Script" path="res://Player/PlayerSkin/PlayerSkin.gd" id="1_lberd"]
+[ext_resource type="Shader" path="res://Player/PlayerSkin/PlayerMat.gdshader" id="2_7gdag"]
 [ext_resource type="Texture2D" uid="uid://c7a2paovr23dp" path="res://_Placeholders/Buck Borris/damaged.png" id="2_863oy"]
-[ext_resource type="Shader" path="res://Player/PlayerSkin/player_mat.gdshader" id="2_r6m0i"]
 [ext_resource type="Texture2D" uid="uid://c7bssafnyceuk" path="res://assets/lucy/dash/000.png" id="3_ygm1t"]
 [ext_resource type="Texture2D" uid="uid://nyuhbohipjdr" path="res://assets/lucy/dash/001.png" id="4_oawk2"]
 [ext_resource type="Texture2D" uid="uid://bripcwowku7lp" path="res://assets/lucy/dash/002.png" id="5_0gek6"]
@@ -31,7 +31,7 @@ colors = PackedColorArray(1, 0.309804, 0.631373, 1, 0.992691, 0.798107, 0, 1, 0.
 gradient = SubResource("Gradient_maa3m")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7bi7x"]
-shader = ExtResource("2_r6m0i")
+shader = ExtResource("2_7gdag")
 shader_parameter/intensity = null
 shader_parameter/gradient_color = SubResource("GradientTexture1D_1lp6n")
 
@@ -493,6 +493,9 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_qq1s1"]
+resource_name = "LookUp"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_routw"]
 _data = {
 "ClimbUp": SubResource("Animation_hbrbs"),
@@ -504,6 +507,7 @@ _data = {
 "Idle": SubResource("Animation_kputj"),
 "Jump": SubResource("Animation_k3xtf"),
 "Land": SubResource("Animation_e60w1"),
+"LookUp": SubResource("Animation_qq1s1"),
 "RESET": SubResource("Animation_0oj1c"),
 "Run": SubResource("Animation_1l7fm"),
 "SlideDown": SubResource("Animation_vcqfu"),
