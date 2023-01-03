@@ -3,12 +3,12 @@ extends PlayerState
 @export var climb_speed := 35.0
 @export var slide_speed := 50.0
 
-@onready var timer: Timer = $Timer
+@onready var _timer: Timer = $Timer
 
 
 func _ready() -> void:
 	super._ready()
-	timer.connect("timeout", _on_Timer_timeout)
+	_timer.connect("timeout", _on_Timer_timeout)
 
 
 func physics_process(delta: float) -> void:
@@ -38,11 +38,11 @@ func physics_process(delta: float) -> void:
 func enter(msg: Dictionary = {}) -> void:
 	player.reset_speed()
 	skin.play_animation("Grab")
-	timer.start()
+	_timer.start()
 
 
 func exit() -> void:
-	timer.stop()
+	_timer.stop()
 
 
 func _on_Timer_timeout() -> void:

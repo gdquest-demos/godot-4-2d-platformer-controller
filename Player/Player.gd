@@ -8,8 +8,6 @@ class_name Player
 @export var max_gravity := 250
 @export var slide_speed := 50.0
 
-@export var dash_duration := 0.25
-
 @export var jump_distance := 80
 @export var jump_height := 50
 @export var jump_time_to_peak := 0.37
@@ -21,6 +19,7 @@ var direction := 0 : set = set_direction
 @onready var skin: PlayerSkin = get_node(skin_path)
 @onready var hurt_box: Area2D = $HurtBox
 @onready var wall_detector: WallDetector = $WallDetector
+@onready var magic_trail: MagicTrail = $MagicTrail
 
 @onready var max_speed: float = jump_distance / (jump_time_to_peak + jump_time_to_descent)
 @onready var jump_speed: float = (-2 * jump_height) / jump_time_to_peak
@@ -31,7 +30,6 @@ var direction := 0 : set = set_direction
 
 @onready var _state_machine: StateMachine = $StateMachine
 
-signal dashing_update(state : bool)
 
 func _ready() -> void:
 	hurt_box.connect("body_entered", _on_HurtBox_body_entered)

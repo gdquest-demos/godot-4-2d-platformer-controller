@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dq45ic78uv1f2"]
+[gd_scene load_steps=12 format=3 uid="uid://b3ygmeysbo87e"]
 
-[ext_resource type="Shader" path="res://Player/magic_trail/magic_trail.gdshader" id="1_hperf"]
-[ext_resource type="Script" path="res://Player/magic_trail/magic_trail.gd" id="1_o6uwh"]
+[ext_resource type="Shader" path="res://Player/magic_trail/MagicTrail.gdshader" id="1_sx7ky"]
+[ext_resource type="Script" path="res://Player/magic_trail/MagicTrail.gd" id="2_f3yj5"]
 
 [sub_resource type="Gradient" id="Gradient_maa3m"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -18,7 +18,7 @@ seamless = true
 noise = SubResource("FastNoiseLite_ixe7k")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kosiu"]
-shader = ExtResource("1_hperf")
+shader = ExtResource("1_sx7ky")
 shader_parameter/noise_sampler = SubResource("NoiseTexture2D_04ha3")
 shader_parameter/gradient_color = SubResource("GradientTexture1D_duny8")
 
@@ -49,7 +49,7 @@ scale_curve = SubResource("CurveTexture_cwnxo")
 material = SubResource("ShaderMaterial_kosiu")
 points = PackedVector2Array(-22, 0, 22, 0)
 texture_mode = 2
-script = ExtResource("1_o6uwh")
+script = ExtResource("2_f3yj5")
 time_curve = SubResource("Curve_ejknv")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]

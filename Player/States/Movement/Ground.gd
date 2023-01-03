@@ -1,5 +1,7 @@
 extends PlayerState
 
+@onready var _dash_cooldown_timer: Timer = $DashCooldownTimer
+
 
 func unhandled_input(event: InputEvent) -> void:
 	_parent.unhandled_input(event)
@@ -19,7 +21,7 @@ func physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("jump"):
 		_state_machine.transition_to("Movement/Air", { jumped = true })
 		return
-	elif Input.is_action_just_pressed("dash"):
+	elif Input.is_action_just_pressed("dash") and _dash_cooldown_timer.is_stopped():
 		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction })
 		return
 		
@@ -28,3 +30,5 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	_parent.can_dash = true
+	if "from_dash" in msg:
+		_dash_cooldown_timer.start()

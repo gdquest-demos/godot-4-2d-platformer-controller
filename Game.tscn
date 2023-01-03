@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://bux3ekgq4n0ew"]
 
 [ext_resource type="Texture2D" uid="uid://c3slgx3jm2vpa" path="res://_Placeholders/industrial.v2.png" id="1_bf4a8"]
-[ext_resource type="PackedScene" uid="uid://cfdpjk56msdd7" path="res://Player/Player.tscn" id="2_ayd1a"]
+[ext_resource type="PackedScene" uid="uid://c1lde6wptcicd" path="res://Player/Player.tscn" id="2_ayd1a"]
 [ext_resource type="Texture2D" uid="uid://jbijanc8xche" path="res://assets/tiles/spikes.png" id="2_h8025"]
 [ext_resource type="Texture2D" uid="uid://dby2bmff500p4" path="res://assets/tiles/ground_grass_auto_tileset.png" id="2_pyv5x"]
 [ext_resource type="Texture2D" uid="uid://cmmhv85ejo32x" path="res://assets/tiles/ivy_bush.png" id="3_b0x8v"]

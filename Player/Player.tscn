@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfdpjk56msdd7"]
+[gd_scene load_steps=16 format=3 uid="uid://c1lde6wptcicd"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
 [ext_resource type="PackedScene" uid="uid://c2pcm33tgjwjt" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
-[ext_resource type="PackedScene" uid="uid://dq45ic78uv1f2" path="res://Player/magic_trail/magic_trail.tscn" id="2_pl23o"]
+[ext_resource type="PackedScene" uid="uid://b3ygmeysbo87e" path="res://Player/magic_trail/MagicTrail.tscn" id="2_pl23o"]
 [ext_resource type="Script" path="res://Player/WallDetector.gd" id="3_dlkw6"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_uvkbh"]
 [ext_resource type="Script" path="res://Player/States/Spawn.gd" id="4_ffg6m"]
@@ -71,6 +71,10 @@ one_shot = true
 [node name="Ground" type="Node" parent="StateMachine/Movement"]
 script = ExtResource("5_enkpq")
 
+[node name="DashCooldownTimer" type="Timer" parent="StateMachine/Movement/Ground"]
+wait_time = 0.25
+one_shot = true
+
 [node name="Air" type="Node" parent="StateMachine/Movement"]
 script = ExtResource("6_glbbq")
 
@@ -85,6 +89,10 @@ script = ExtResource("5_l20rl")
 [node name="Dash" type="Node" parent="StateMachine/Action"]
 script = ExtResource("9_w40pj")
 
+[node name="Timer" type="Timer" parent="StateMachine/Action/Dash"]
+wait_time = 0.25
+one_shot = true
+
 [node name="Climb" type="Node" parent="StateMachine/Action"]
 script = ExtResource("11_a57d7")
 
@@ -94,5 +102,3 @@ one_shot = true
 
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource("9_tr2qq")
-
-[connection signal="dashing_update" from="." to="MagicTrail" method="set_active"]

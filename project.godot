@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Line2D",
+"class": &"MagicTrail",
+"language": &"GDScript",
+"path": "res://Player/magic_trail/MagicTrail.gd"
+}, {
 "base": "CharacterBody2D",
 "class": &"Player",
 "language": &"GDScript",
@@ -40,6 +45,7 @@ _global_script_classes=[{
 "path": "res://Player/WallDetector.gd"
 }]
 _global_script_class_icons={
+"MagicTrail": "",
 "Player": "",
 "PlayerSkin": "",
 "PlayerState": "",
