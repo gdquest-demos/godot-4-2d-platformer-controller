@@ -8,7 +8,7 @@
 [node name="Level" parent="." instance=ExtResource("1_5v4x1")]
 
 [node name="Player" parent="." instance=ExtResource("2_no0ka")]
-position = Vector2(1088, 344)
+position = Vector2(1528, 312)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true

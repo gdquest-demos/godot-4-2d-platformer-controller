@@ -15,6 +15,7 @@ class_name Player
 @export var jump_cut_value := 15
 
 var direction := 0.0 : set = set_direction
+var can_dash := true
 
 @onready var skin: PlayerSkin = get_node(skin_path)
 @onready var hurt_box: Area2D = $HurtBox

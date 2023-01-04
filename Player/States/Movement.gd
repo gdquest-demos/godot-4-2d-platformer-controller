@@ -2,7 +2,6 @@ extends PlayerState
 
 var input_direction := Vector2.ZERO
 var x_input := 0.0
-var can_dash := true
 
 @onready var _climb_cooldown_timer: Timer = $ClimbCooldownTimer
 

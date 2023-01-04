@@ -17,8 +17,8 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to("Action/SlideDown")
 		return
 
-	if Input.is_action_just_pressed("dash") and _parent.can_dash:
-		_parent.can_dash = false
+	if Input.is_action_just_pressed("dash") and player.can_dash:
+		player.can_dash = false
 		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction })
 		return
 

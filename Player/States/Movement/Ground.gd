@@ -18,6 +18,7 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to("Movement/Air", { jumped = true })
 		return
 	elif Input.is_action_just_pressed("dash") and _dash_cooldown_timer.is_stopped():
+		player.can_dash = false
 		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction })
 		return
 		
@@ -25,6 +26,6 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
-	_parent.can_dash = true
+	player.can_dash = true
 	if "from_dash" in msg:
 		_dash_cooldown_timer.start()
