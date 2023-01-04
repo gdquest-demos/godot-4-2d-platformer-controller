@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://c00pmf5p4en8g"]
+
+[ext_resource type="Script" path="res://Checkpoint/checkpoint.gd" id="1_83hyq"]
+[ext_resource type="Texture2D" uid="uid://dwp0ar0rfvbc3" path="res://Checkpoint/flag/flag_off.png" id="2_0nm5n"]
+[ext_resource type="Texture2D" uid="uid://8ye3sfpc0pjj" path="res://Checkpoint/flag/wind/004.png" id="3_x3pig"]
+[ext_resource type="Texture2D" uid="uid://dxkc1opingwc5" path="res://Checkpoint/flag/wind/003.png" id="4_qj688"]
+[ext_resource type="Texture2D" uid="uid://c8elf5y55siwm" path="res://Checkpoint/flag/wind/002.png" id="5_68d1n"]
+[ext_resource type="Texture2D" uid="uid://cd0f0imhgdiit" path="res://Checkpoint/flag/wind/001.png" id="6_cgcdu"]
+[ext_resource type="Texture2D" uid="uid://2gkkig6fitlf" path="res://Checkpoint/flag/wind/000.png" id="7_kxkv7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ietj"]
+animations = [{
+"frames": [ExtResource("2_0nm5n")],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [ExtResource("3_x3pig"), ExtResource("4_qj688"), ExtResource("5_68d1n"), ExtResource("6_cgcdu"), ExtResource("7_kxkv7")],
+"loop": true,
+"name": &"wind",
+"speed": 12.0
+}]
+
+[sub_resource type="Curve" id="Curve_2pdoa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.63204, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hhq75"]
+curve = SubResource("Curve_2pdoa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l23nn"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 60.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 20.0
+damping_max = 40.0
+scale_min = 2.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_hhq75")
+turbulence_enabled = true
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_83hyq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_3ietj")
+playing = true
+offset = Vector2(3, -11)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -10)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_l23nn")
+lifetime = 0.8
+one_shot = true
+preprocess = 0.03
+explosiveness = 1.0
