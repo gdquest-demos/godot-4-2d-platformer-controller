@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3n71t3wf11gw"]
+[gd_scene load_steps=17 format=3 uid="uid://c3n71t3wf11gw"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
 [ext_resource type="PackedScene" uid="uid://c85thnm0n175x" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Player/States/Die.gd" id="9_tr2qq"]
 [ext_resource type="Script" path="res://Player/States/Action/Dash.gd" id="9_w40pj"]
 [ext_resource type="Script" path="res://Player/States/Action/Climb.gd" id="11_a57d7"]
+[ext_resource type="Script" path="res://Player/States/Action/SlideDown.gd" id="13_lmfmp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgf8f"]
 radius = 4.0
@@ -99,6 +100,9 @@ script = ExtResource("11_a57d7")
 [node name="Timer" type="Timer" parent="StateMachine/Action/Climb"]
 wait_time = 5.0
 one_shot = true
+
+[node name="SlideDown" type="Node" parent="StateMachine/Action"]
+script = ExtResource("13_lmfmp")
 
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource("9_tr2qq")

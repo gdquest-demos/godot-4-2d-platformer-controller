@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://d23xs5l3iuqex"]
+[gd_scene load_steps=32 format=3 uid="uid://binsn3d8plxrx"]
 
 [ext_resource type="Texture2D" uid="uid://djewvqhkolux0" path="res://assets/tiles/16x16_geo.png" id="2_0fy4u"]
 [ext_resource type="PackedScene" uid="uid://c3n71t3wf11gw" path="res://Player/Player.tscn" id="2_ayd1a"]

@@ -14,19 +14,13 @@ func physics_process(delta: float) -> void:
 		player.reset_y_speed()
 
 	if wall_detector.is_against_wall() and x_input_direction == wall_detector.get_direction() and player.velocity.y > 0:
-		player.move_y(player.acceleration, 1, player.slide_speed, delta)
-		skin.play_animation("SlideDown")
-		skin.set_direction(wall_detector.get_direction())
-		
-		if Input.is_action_just_pressed("jump"):
-			_state_machine.transition_to("Movement/Air", { jumped = true, direction = wall_detector.get_direction() })
-			return
-	else:
-		skin.play_animation("Fall")
-		if Input.is_action_just_pressed("dash") and _parent.can_dash:
-			_parent.can_dash = false
-			_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction })
-			return
+		_state_machine.transition_to("Action/SlideDown")
+		return
+
+	if Input.is_action_just_pressed("dash") and _parent.can_dash:
+		_parent.can_dash = false
+		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction })
+		return
 
 	if player.is_on_floor():
 		_state_machine.transition_to("Movement/Ground")
