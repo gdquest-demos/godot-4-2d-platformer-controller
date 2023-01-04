@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="2D Platformer Controller"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://Playground.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
