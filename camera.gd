@@ -3,10 +3,17 @@ extends Camera2D
 @export var target :  Node2D
 @export var path :  Path2D
 @export var influence_max_distance = 80.0
-
+@export var rect_limit : Node2D
 var _closest_points : Vector2
 
 func _ready():
+	if rect_limit:
+		var half_size = rect_limit.size / 2.0
+		limit_left = -half_size.x - position.x
+		limit_right = half_size.x - position.x
+		limit_top = -half_size.y + position.y
+		limit_bottom = half_size.y + position.y
+
 	global_position = target.global_position
 
 func _process(delta):
