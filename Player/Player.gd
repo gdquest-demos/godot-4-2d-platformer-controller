@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal died
+
 @export var skin_path: NodePath
 
 @export var acceleration := 700
@@ -38,6 +40,10 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
+
+
+func initialize() -> void:
+	_state_machine.transition_to("Spawn")
 
 
 func set_direction(value: float) -> void:

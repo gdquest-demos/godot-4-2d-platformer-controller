@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://gsedxvh4twwy"]
+[gd_scene load_steps=5 format=3 uid="uid://gsedxvh4twwy"]
 
 [ext_resource type="PackedScene" uid="uid://mr2lqrqdwrfg" path="res://World/Level/Level.tscn" id="1_5v4x1"]
+[ext_resource type="Script" path="res://World/GameEvents.gd" id="1_gqg0u"]
+[ext_resource type="PackedScene" uid="uid://cnhwfseryy6yw" path="res://transition/transition.tscn" id="2_2puoy"]
 [ext_resource type="PackedScene" uid="uid://c3n71t3wf11gw" path="res://Player/Player.tscn" id="2_no0ka"]
 
 [node name="Main" type="Node"]
+
+[node name="GameEvents" type="CanvasLayer" parent="."]
+script = ExtResource("1_gqg0u")
+player_path = NodePath("../Player")
+
+[node name="Transition" parent="GameEvents" instance=ExtResource("2_2puoy")]
 
 [node name="Level" parent="." instance=ExtResource("1_5v4x1")]
 

@@ -4,7 +4,9 @@ extends Camera2D
 @export var path :  Path2D
 @export var influence_max_distance = 80.0
 @export var rect_limit : Node2D
+
 var _closest_points : Vector2
+
 
 func _ready():
 	if rect_limit:
@@ -15,6 +17,7 @@ func _ready():
 		limit_bottom = half_size.y + position.y
 
 	global_position = target.global_position
+
 
 func _process(delta):
 	_closest_points = path.curve.get_closest_point(target.global_position)

@@ -2,7 +2,6 @@ extends PlayerState
 
 
 func enter(msg: Dictionary = {}) -> void:
-	player.reset_position()
 	skin.play_animation("Spawn")
 	skin.connect("animation_finished", _on_PlayerSkin_animation_finished)
 
