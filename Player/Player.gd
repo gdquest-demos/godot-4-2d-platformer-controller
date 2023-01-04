@@ -27,7 +27,7 @@ var can_dash := true
 @onready var jump_gravity: float = (2 * jump_height) / pow(jump_time_to_peak, 2)
 @onready var fall_gravity: float = (2 * jump_height) / pow(jump_time_to_descent, 2)
 @onready var jump_cut_speed: float = fall_gravity / jump_cut_value
-@onready var respawn_position: Vector2 = global_position
+@onready var respawn_position: Vector2 = global_position : set = set_respawn_position
 
 @onready var _state_machine: StateMachine = $StateMachine
 
@@ -42,6 +42,10 @@ func _physics_process(_delta: float) -> void:
 
 func set_direction(value: float) -> void:
 	direction = value
+
+
+func set_respawn_position(value: Vector2) -> void:
+	respawn_position = value
 
 
 func reset_position() -> void:

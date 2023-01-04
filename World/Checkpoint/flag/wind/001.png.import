@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxkc1opingwc5"
-path="res://.godot/imported/003.png-d411b40a468cd9b610063f7f078fbcf9.ctex"
+uid="uid://cd0f0imhgdiit"
+path="res://.godot/imported/001.png-3db0818cab92fd21d3cfc5c9b28673cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Checkpoint/flag/wind/003.png"
-dest_files=["res://.godot/imported/003.png-d411b40a468cd9b610063f7f078fbcf9.ctex"]
+source_file="res://World/Checkpoint/flag/wind/001.png"
+dest_files=["res://.godot/imported/001.png-3db0818cab92fd21d3cfc5c9b28673cf.ctex"]
 
 [params]
 

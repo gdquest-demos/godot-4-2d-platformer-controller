@@ -14,3 +14,7 @@ func physics_process(delta: float) -> void:
 	
 	if not (wall_detector.is_against_wall() and x_input_direction == wall_detector.get_direction() and player.velocity.y > 0):
 		_state_machine.transition_to("Movement/Air")
+
+
+func enter(msg: Dictionary = {}) -> void:
+	player.can_dash = true

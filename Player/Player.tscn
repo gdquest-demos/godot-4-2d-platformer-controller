@@ -28,14 +28,17 @@ script = ExtResource("1_deiey")
 skin_path = NodePath("PlayerSkin")
 
 [node name="MagicTrail" parent="." instance=ExtResource("2_pl23o")]
+position = Vector2(0, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_bgf8f")
 
 [node name="PlayerSkin" parent="." instance=ExtResource("1_elpj3")]
-position = Vector2(0, -2)
+position = Vector2(0, -11)
 
 [node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(0, -9)
 collision_layer = 0
 collision_mask = 4
 
@@ -43,6 +46,7 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_hu126")
 
 [node name="WallDetector" type="Marker2D" parent="."]
+position = Vector2(0, -9)
 script = ExtResource("3_dlkw6")
 
 [node name="RayCastTop" type="RayCast2D" parent="WallDetector"]

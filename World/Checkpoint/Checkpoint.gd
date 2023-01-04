@@ -1,9 +1,14 @@
 extends Node2D
 
-@onready var sprite = $AnimatedSprite2D
-@onready var particles = $GPUParticles2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var particles: GPUParticles2D = $GPUParticles2D
 
-var active = false : set = _set_active
+var active := false : set = _set_active
+
+
+func _ready() -> void:
+	connect("body_entered", _on_body_entered)
+
 
 func _set_active(value : bool):
 	var t = create_tween()
@@ -14,3 +19,8 @@ func _set_active(value : bool):
 		particles.emitting = true
 		sprite.play("wind")
 	else: sprite.play("default")
+
+
+func _on_body_entered(body: Node2D) -> void:
+	_set_active(true)
+	body.set_respawn_position(global_position) # To do: use signal (?)
