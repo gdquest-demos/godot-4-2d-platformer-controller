@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnhwfseryy6yw"]
+
+[ext_resource type="Shader" path="res://transition/transition.gdshader" id="1_653iw"]
+[ext_resource type="Texture2D" uid="uid://etptsmjmckww" path="res://transition/star-sdf.png" id="2_b6y81"]
+[ext_resource type="Script" path="res://transition/transition.gd" id="3_7tvx2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njft8"]
+shader = ExtResource("1_653iw")
+shader_parameter/rotation = 0.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/ratio = Vector2(1, 1)
+shader_parameter/scale = 1.0
+shader_parameter/star_sdf_sampler = ExtResource("2_b6y81")
+
+[node name="Transition" type="ColorRect"]
+material = SubResource("ShaderMaterial_njft8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("3_7tvx2")
