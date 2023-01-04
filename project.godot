@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="2D Platformer Controller"
-run/main_scene="res://Playground.tscn"
+run/main_scene="res://World/Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -126,6 +126,7 @@ grab={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="World"
 2d_physics/layer_3="Hazzard"
+2d_physics/layer_4="Checkpoint"
 
 [rendering]
 

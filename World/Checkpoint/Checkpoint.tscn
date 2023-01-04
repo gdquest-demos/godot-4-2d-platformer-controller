@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://yfc413otowjr"]
+
+[ext_resource type="Texture2D" uid="uid://c3slgx3jm2vpa" path="res://_Placeholders/industrial.v2.png" id="1_5tybv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxih0"]
+
+[node name="Checkpoint" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pxih0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5tybv")
+hframes = 32
+vframes = 32
+frame = 297

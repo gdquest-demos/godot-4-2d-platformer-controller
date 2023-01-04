@@ -61,7 +61,7 @@ func enter(msg: Dictionary = {}) -> void:
 	elif "climbed" in msg:
 		if player.velocity.y < 0:
 			player.jump(player.jump_cut_speed)
-	elif "from_dash":
+	elif "from_dash" in msg:
 		skin.play_animation("Fall")
 	else:
 		skin.play_animation("Fall")
