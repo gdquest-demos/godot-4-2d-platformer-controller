@@ -42,6 +42,8 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
+	player.unset_snap()
+	
 	_parent.enter(msg)
 	
 	if "jumped" in msg:

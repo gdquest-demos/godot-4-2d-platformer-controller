@@ -24,6 +24,7 @@ size = Vector2(10, 18)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
+floor_snap_length = 1.1
 script = ExtResource("1_deiey")
 skin_path = NodePath("PlayerSkin")
 

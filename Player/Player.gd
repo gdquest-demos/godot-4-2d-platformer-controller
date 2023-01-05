@@ -54,6 +54,14 @@ func set_respawn_position(value: Vector2) -> void:
 	respawn_position = value
 
 
+func set_snap() -> void:
+	floor_snap_length = 1.1
+
+
+func unset_snap() -> void:
+	floor_snap_length = 0.0
+
+
 func reset_position() -> void:
 	global_position = respawn_position
 
