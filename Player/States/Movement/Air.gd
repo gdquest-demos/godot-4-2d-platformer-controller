@@ -37,13 +37,11 @@ func physics_process(delta: float) -> void:
 			_jump_released = true
 			return
 	
-	player.move(player.acceleration, player.direction, player.max_speed, delta)
 	_parent.physics_process(delta)
 
 
 func enter(msg: Dictionary = {}) -> void:
 	player.unset_snap()
-	
 	_parent.enter(msg)
 	
 	if "jumped" in msg:

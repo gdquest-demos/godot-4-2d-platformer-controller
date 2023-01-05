@@ -31,4 +31,4 @@ position = Vector2(1536, 128)
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="DashGem" parent="Pickups" instance=ExtResource("3_3w2hf")]
-position = Vector2(344, 80)
+position = Vector2(344, 40)

@@ -11,7 +11,7 @@ func physics_process(delta: float) -> void:
 	player.set_direction(x_input)
 	
 	if player.direction != 0:
-		player.move(player.acceleration, player.direction, player.max_speed * x_input, delta)
+		player.move(player.acceleration, player.direction, player.max_speed, delta)
 	
 	if player.is_on_floor() and player.direction == 0:
 		player.decelerate(player.deceleration, delta)
