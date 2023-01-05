@@ -22,11 +22,13 @@ func enter(msg: Dictionary = {}) -> void:
 		_direction = msg.direction
 	player.set_velocity(Vector2.LEFT * player.jump_speed * sign(_direction.x) + Vector2.UP * player.jump_speed * sign(_direction.y))
 	player.set_direction(_direction.x)
+	gameplay_events.emit_signal("dash_started")
 	
 	skin.set_direction(_direction.x)
 	skin.play_animation("Dash")
 	skin.set_rainbow_intensity(1.0)
 	
+	dash_zone_detector.connect("area_entered", _on_DashZoneDetector_area_entered)
 	wall_detector.set_direction(_direction.x)
 	
 	_timer.start()
@@ -34,6 +36,8 @@ func enter(msg: Dictionary = {}) -> void:
 
 
 func exit() -> void:
+	gameplay_events.emit_signal("dash_ended")
+	dash_zone_detector.disconnect("area_entered", _on_DashZoneDetector_area_entered)
 	_timer.stop()
 	_set_dash_effect(false)
 
@@ -53,3 +57,7 @@ func _on_Timer_timeout() -> void:
 		_state_machine.transition_to("Movement/Ground", { from_dash = true })
 	else:
 		_state_machine.transition_to("Movement/Air", { from_dash = true })
+
+
+func _on_DashZoneDetector_area_entered(area: Area2D) -> void:
+	_state_machine.transition_to("Action/Dash/Continuous", { direction = _direction })

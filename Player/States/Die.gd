@@ -12,4 +12,4 @@ func exit() -> void:
 
 
 func _on_PlayerSkin_animation_finished(anim_name: String) -> void:
-	player.emit_signal("died")
+	gameplay_events.emit_signal("player_died")

@@ -1,8 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-signal died
-
+@export var gameplay_events: GameplayEvents
 @export var skin_path: NodePath
 
 @export var acceleration := 700
@@ -22,6 +21,7 @@ var can_dash := true
 @onready var skin: PlayerSkin = get_node(skin_path)
 @onready var hurt_box: Area2D = $HurtBox
 @onready var pickup_detector: Area2D = $PickupDetector
+@onready var dash_zone_detector: Area2D = $DashZoneDetector
 @onready var wall_detector: WallDetector = $WallDetector
 @onready var magic_trail: MagicTrail = $MagicTrail
 

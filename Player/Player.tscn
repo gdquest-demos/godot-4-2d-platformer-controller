@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3n71t3wf11gw"]
+[gd_scene load_steps=22 format=3 uid="uid://c3n71t3wf11gw"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
 [ext_resource type="PackedScene" uid="uid://c85thnm0n175x" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
+[ext_resource type="Resource" uid="uid://blqcviaifmvrs" path="res://GameEvents/GameplayEvents.tres" id="2_21hdn"]
 [ext_resource type="PackedScene" path="res://Player/MagicTrail/MagicTrail.tscn" id="2_pl23o"]
 [ext_resource type="Script" path="res://Player/WallDetector.gd" id="3_dlkw6"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_uvkbh"]
+[ext_resource type="Script" path="res://Player/DashZoneDetector.gd" id="4_bh7in"]
 [ext_resource type="Script" path="res://Player/States/Spawn.gd" id="4_ffg6m"]
 [ext_resource type="Script" path="res://Player/States/Movement.gd" id="4_mh5a3"]
 [ext_resource type="Script" path="res://Player/States/Movement/Ground.gd" id="5_enkpq"]
@@ -14,6 +16,7 @@
 [ext_resource type="Script" path="res://Player/States/Action/Dash.gd" id="9_w40pj"]
 [ext_resource type="Script" path="res://Player/States/Action/Climb.gd" id="11_a57d7"]
 [ext_resource type="Script" path="res://Player/States/Action/SlideDown.gd" id="13_lmfmp"]
+[ext_resource type="Script" path="res://Player/States/Action/Continuous.gd" id="14_2kve7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgf8f"]
 radius = 4.0
@@ -25,10 +28,14 @@ size = Vector2(10, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7d2ke"]
 size = Vector2(12, 18)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ylet"]
+radius = 8.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 floor_snap_length = 1.1
 script = ExtResource("1_deiey")
+gameplay_events = ExtResource("2_21hdn")
 skin_path = NodePath("PlayerSkin")
 
 [node name="MagicTrail" parent="." instance=ExtResource("2_pl23o")]
@@ -57,6 +64,16 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupDetector"]
 shape = SubResource("RectangleShape2D_7d2ke")
+
+[node name="DashZoneDetector" type="Area2D" parent="."]
+position = Vector2(0, -9)
+collision_layer = 0
+collision_mask = 32
+monitorable = false
+script = ExtResource("4_bh7in")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashZoneDetector"]
+shape = SubResource("CircleShape2D_2ylet")
 
 [node name="WallDetector" type="Marker2D" parent="."]
 position = Vector2(0, -9)
@@ -110,6 +127,9 @@ script = ExtResource("9_w40pj")
 [node name="Timer" type="Timer" parent="StateMachine/Action/Dash"]
 wait_time = 0.25
 one_shot = true
+
+[node name="Continuous" type="Node" parent="StateMachine/Action/Dash"]
+script = ExtResource("14_2kve7")
 
 [node name="Climb" type="Node" parent="StateMachine/Action"]
 script = ExtResource("11_a57d7")

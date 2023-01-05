@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://blqcviaifmvrs"]
+
+[ext_resource type="Script" path="res://GameEvents/GameplayEvents.gd" id="1_1xnhu"]
+
+[resource]
+script = ExtResource("1_1xnhu")

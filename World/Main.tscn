@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://gsedxvh4twwy"]
+[gd_scene load_steps=6 format=3 uid="uid://gsedxvh4twwy"]
 
 [ext_resource type="Script" path="res://World/GameEvents.gd" id="1_gqg0u"]
 [ext_resource type="PackedScene" uid="uid://cnhwfseryy6yw" path="res://transition/transition.tscn" id="2_2puoy"]
 [ext_resource type="PackedScene" uid="uid://c3n71t3wf11gw" path="res://Player/Player.tscn" id="2_no0ka"]
 [ext_resource type="PackedScene" uid="uid://jfctgxljl32y" path="res://World/Level/Prototype_1.tscn" id="2_uo3fa"]
+[ext_resource type="Resource" uid="uid://blqcviaifmvrs" path="res://GameEvents/GameplayEvents.tres" id="2_w5pcb"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_gqg0u")
+gameplay_events = ExtResource("2_w5pcb")
 player_path = NodePath("Player")
 level = ExtResource("2_uo3fa")
 
