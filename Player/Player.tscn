@@ -23,6 +23,7 @@ height = 16.0
 size = Vector2(10, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7d2ke"]
+size = Vector2(12, 18)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -49,6 +50,7 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_hu126")
 
 [node name="PickupDetector" type="Area2D" parent="."]
+position = Vector2(0, -9)
 collision_layer = 0
 collision_mask = 16
 monitorable = false
