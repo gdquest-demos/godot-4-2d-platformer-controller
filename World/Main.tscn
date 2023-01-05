@@ -1,22 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://gsedxvh4twwy"]
 
-[ext_resource type="PackedScene" uid="uid://mr2lqrqdwrfg" path="res://World/Level/Level.tscn" id="1_5v4x1"]
 [ext_resource type="Script" path="res://World/GameEvents.gd" id="1_gqg0u"]
 [ext_resource type="PackedScene" uid="uid://cnhwfseryy6yw" path="res://transition/transition.tscn" id="2_2puoy"]
 [ext_resource type="PackedScene" uid="uid://c3n71t3wf11gw" path="res://Player/Player.tscn" id="2_no0ka"]
+[ext_resource type="PackedScene" uid="uid://jfctgxljl32y" path="res://World/Level/Prototype_1.tscn" id="2_uo3fa"]
 
 [node name="Main" type="Node"]
-
-[node name="GameEvents" type="CanvasLayer" parent="."]
 script = ExtResource("1_gqg0u")
-player_path = NodePath("../Player")
+player_path = NodePath("Player")
+level = ExtResource("2_uo3fa")
 
-[node name="Transition" parent="GameEvents" instance=ExtResource("2_2puoy")]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Level" parent="." instance=ExtResource("1_5v4x1")]
+[node name="Transition" parent="UI" instance=ExtResource("2_2puoy")]
+
+[node name="LevelHolder" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_no0ka")]
-position = Vector2(104, 112)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
