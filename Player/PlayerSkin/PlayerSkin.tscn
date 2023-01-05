@@ -1,9 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://c85thnm0n175x"]
+[gd_scene load_steps=55 format=3 uid="uid://c85thnm0n175x"]
 
 [ext_resource type="Texture2D" uid="uid://dhlfhsr7lsrrn" path="res://_Placeholders/Buck Borris/attacks.png" id="1_jxpmo"]
 [ext_resource type="Script" path="res://Player/PlayerSkin/PlayerSkin.gd" id="1_lberd"]
 [ext_resource type="Shader" path="res://Player/PlayerSkin/PlayerMat.gdshader" id="2_7gdag"]
-[ext_resource type="Texture2D" uid="uid://c7a2paovr23dp" path="res://_Placeholders/Buck Borris/damaged.png" id="2_863oy"]
 [ext_resource type="Texture2D" uid="uid://c7bssafnyceuk" path="res://assets/lucy/dash/000.png" id="3_ygm1t"]
 [ext_resource type="Texture2D" uid="uid://nyuhbohipjdr" path="res://assets/lucy/dash/001.png" id="4_oawk2"]
 [ext_resource type="Texture2D" uid="uid://bripcwowku7lp" path="res://assets/lucy/dash/002.png" id="5_0gek6"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cp5ysokccfxcr" path="res://assets/lucy/dash/003.png" id="6_w46dk"]
 [ext_resource type="Texture2D" uid="uid://c3i67gf5xtur1" path="res://assets/lucy/idle/002.png" id="7_6ii12"]
 [ext_resource type="Texture2D" uid="uid://b71pq7wt5lpk2" path="res://_Placeholders/Buck Borris/appear.png" id="7_7a686"]
+[ext_resource type="Texture2D" uid="uid://cdg77ke4d61ji" path="res://assets/lucy/lucy_hurt.png" id="8_a3hia"]
 [ext_resource type="Texture2D" uid="uid://ckdstkswgy7yp" path="res://assets/lucy/idle/003.png" id="8_daia3"]
 [ext_resource type="Texture2D" uid="uid://byi5d5liq08bu" path="res://assets/lucy/walk/000.png" id="8_yuvf2"]
 [ext_resource type="Texture2D" uid="uid://cqhwdqlpfm50e" path="res://assets/lucy/walk/001.png" id="9_c00j0"]
@@ -59,14 +59,6 @@ region = Rect2(30, 230, 30, 23)
 atlas = ExtResource("1_jxpmo")
 region = Rect2(30, 253, 30, 23)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j0w5e"]
-atlas = ExtResource("2_863oy")
-region = Rect2(30, 0, 30, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_16x1f"]
-atlas = ExtResource("2_863oy")
-region = Rect2(30, 23, 30, 23)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_abefx"]
 atlas = ExtResource("1_jxpmo")
 region = Rect2(30, 230, 30, 23)
@@ -107,7 +99,7 @@ animations = [{
 "name": &"Dash",
 "speed": 10.0
 }, {
-"frames": [SubResource("AtlasTexture_j0w5e"), SubResource("AtlasTexture_16x1f")],
+"frames": [ExtResource("8_a3hia")],
 "loop": false,
 "name": &"Die",
 "speed": 5.0
@@ -232,10 +224,22 @@ tracks/1/path = NodePath("SpriteContainer/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1]
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteContainer/AnimatedSprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.882353, 0.172549, 0.333333, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_lfr25"]
@@ -381,6 +385,9 @@ tracks/1/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_qq1s1"]
+resource_name = "LookUp"
+
 [sub_resource type="Animation" id="Animation_0oj1c"]
 length = 0.001
 tracks/0/type = "value"
@@ -406,6 +413,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteContainer/AnimatedSprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_1l7fm"]
@@ -492,9 +511,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-
-[sub_resource type="Animation" id="Animation_qq1s1"]
-resource_name = "LookUp"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_routw"]
 _data = {

@@ -40,9 +40,5 @@ script = ExtResource("1_xuph5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_bfj65")
-animation = &"0"
-frame = 4
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2(4, 4)
+animation = &"1"
+playing = true
