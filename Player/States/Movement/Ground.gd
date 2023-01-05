@@ -28,5 +28,8 @@ func physics_process(delta: float) -> void:
 func enter(msg: Dictionary = {}) -> void:
 	player.set_snap()
 	player.can_dash = true
+	
+	gameplay_events.emit_signal("dash_enabled")
+	
 	if "from_dash" in msg:
 		_dash_cooldown_timer.start()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuhh8ixkpems1"]
+[gd_scene load_steps=5 format=3 uid="uid://cuhh8ixkpems1"]
 
 [ext_resource type="Texture2D" uid="uid://c3slgx3jm2vpa" path="res://_Placeholders/industrial.v2.png" id="1_hphva"]
 [ext_resource type="Script" path="res://World/DashGem/DashGem.gd" id="1_lwm6e"]
+[ext_resource type="Resource" uid="uid://blqcviaifmvrs" path="res://GameEvents/GameplayEvents.tres" id="2_8tfnc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xik5o"]
 
@@ -10,6 +11,7 @@ collision_layer = 16
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_lwm6e")
+gameplay_events = ExtResource("2_8tfnc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xik5o")
@@ -19,3 +21,6 @@ texture = ExtResource("1_hphva")
 hframes = 32
 vframes = 32
 frame = 327
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
