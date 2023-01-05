@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3n71t3wf11gw"]
+[gd_scene load_steps=18 format=3 uid="uid://c3n71t3wf11gw"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
 [ext_resource type="PackedScene" uid="uid://c85thnm0n175x" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
@@ -21,6 +21,8 @@ height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu126"]
 size = Vector2(10, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d2ke"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -45,6 +47,14 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_hu126")
+
+[node name="PickupDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupDetector"]
+shape = SubResource("RectangleShape2D_7d2ke")
 
 [node name="WallDetector" type="Marker2D" parent="."]
 position = Vector2(0, -9)

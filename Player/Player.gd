@@ -21,6 +21,7 @@ var can_dash := true
 
 @onready var skin: PlayerSkin = get_node(skin_path)
 @onready var hurt_box: Area2D = $HurtBox
+@onready var pickup_detector: Area2D = $PickupDetector
 @onready var wall_detector: WallDetector = $WallDetector
 @onready var magic_trail: MagicTrail = $MagicTrail
 
@@ -36,6 +37,7 @@ var can_dash := true
 
 func _ready() -> void:
 	hurt_box.connect("body_entered", _on_HurtBox_body_entered)
+	pickup_detector.connect("area_entered", _on_PickupDetector_area_entered)
 
 
 func _physics_process(_delta: float) -> void:
@@ -107,3 +109,9 @@ func apply_gravity(delta: float) -> void:
 
 func _on_HurtBox_body_entered(body: Node2D) -> void:
 	_state_machine.transition_to("Die")
+
+
+func _on_PickupDetector_area_entered(area: Area2D) -> void:
+	if area.has_method("collect"):
+		area.collect()
+	can_dash = true

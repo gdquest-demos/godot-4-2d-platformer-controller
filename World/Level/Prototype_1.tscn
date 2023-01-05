@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://jfctgxljl32y"]
+[gd_scene load_steps=4 format=3 uid="uid://jfctgxljl32y"]
 
 [ext_resource type="TileSet" uid="uid://biscvhoof1cg5" path="res://assets/main_tileset.tres" id="1_5c5m1"]
 [ext_resource type="PackedScene" uid="uid://dual15nkjm5g6" path="res://World/Checkpoint/Checkpoint.tscn" id="2_8dmh7"]
+[ext_resource type="PackedScene" uid="uid://cuhh8ixkpems1" path="res://World/DashGem/DashGem.tscn" id="3_3w2hf"]
 
 [node name="Level" type="Node2D"]
 
@@ -26,3 +27,8 @@ position = Vector2(1152, 192)
 
 [node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("2_8dmh7")]
 position = Vector2(1536, 128)
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="DashGem" parent="Pickups" instance=ExtResource("3_3w2hf")]
+position = Vector2(344, 80)
