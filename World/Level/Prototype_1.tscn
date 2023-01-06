@@ -44,6 +44,9 @@ position = Vector2(1952, 0)
 [node name="Checkpoint6" parent="Checkpoints" instance=ExtResource("2_8dmh7")]
 position = Vector2(2256, -144)
 
+[node name="Checkpoint7" parent="Checkpoints" instance=ExtResource("2_8dmh7")]
+position = Vector2(2256, 0)
+
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="DashGem" parent="Pickups" instance=ExtResource("3_3w2hf")]
