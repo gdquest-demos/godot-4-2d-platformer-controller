@@ -13,3 +13,5 @@ func exit() -> void:
 
 func _on_PlayerSkin_animation_finished(anim_name: String) -> void:
 	gameplay_events.emit_signal("player_died")
+	skin.hide()
+	vfx.spawn_explosion()

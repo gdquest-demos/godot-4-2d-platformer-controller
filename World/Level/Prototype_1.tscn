@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://jfctgxljl32y"]
+[gd_scene load_steps=9 format=3 uid="uid://bcb2w60xbuaer"]
 
 [ext_resource type="TileSet" uid="uid://biscvhoof1cg5" path="res://assets/main_tileset.tres" id="1_5c5m1"]
 [ext_resource type="PackedScene" uid="uid://dual15nkjm5g6" path="res://World/Checkpoint/Checkpoint.tscn" id="2_8dmh7"]
 [ext_resource type="PackedScene" uid="uid://cuhh8ixkpems1" path="res://World/DashGem/DashGem.tscn" id="3_3w2hf"]
 [ext_resource type="PackedScene" uid="uid://bl1k5rcvurfek" path="res://World/DashZone/DashZone.tscn" id="4_gblkx"]
-[ext_resource type="Script" path="res://rect_editor.gd" id="5_vi2gn"]
-[ext_resource type="Script" path="res://camera.gd" id="6_sxahv"]
+[ext_resource type="Script" path="res://RectEditor.gd" id="5_qfsal"]
+[ext_resource type="Script" path="res://Camera.gd" id="6_6256u"]
 [ext_resource type="PackedScene" uid="uid://c3n71t3wf11gw" path="res://Player/Player.tscn" id="7_mk5co"]
 
 [sub_resource type="Curve2D" id="Curve2D_a24nd"]
@@ -71,7 +71,7 @@ curve = SubResource("Curve2D_a24nd")
 
 [node name="RectLimit" type="Node2D" parent="."]
 position = Vector2(1147, 128)
-script = ExtResource("5_vi2gn")
+script = ExtResource("5_qfsal")
 size = Vector2(6000, 1500)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target", "path", "rect_limit")]
@@ -80,9 +80,10 @@ current = true
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
-script = ExtResource("6_sxahv")
+script = ExtResource("6_6256u")
 target = NodePath("../Player")
 path = NodePath("../CameraInfluence")
 rect_limit = NodePath("../RectLimit")
 
 [node name="Player" parent="." instance=ExtResource("7_mk5co")]
+position = Vector2(1896, -16)

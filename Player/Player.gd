@@ -24,6 +24,7 @@ var can_dash := true
 @onready var dash_zone_detector: Area2D = $DashZoneDetector
 @onready var wall_detector: WallDetector = $WallDetector
 @onready var magic_trail: MagicTrail = $MagicTrail
+@onready var vfx: VFX = $VFX
 
 @onready var max_speed: float = jump_distance / (jump_time_to_peak + jump_time_to_descent)
 @onready var jump_speed: float = (-2 * jump_height) / jump_time_to_peak

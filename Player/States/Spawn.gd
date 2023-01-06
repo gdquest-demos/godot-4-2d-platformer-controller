@@ -2,6 +2,10 @@ extends PlayerState
 
 
 func enter(msg: Dictionary = {}) -> void:
+	vfx.spawn_explosion()
+	await vfx.explosion_finished
+	
+	skin.show()
 	skin.play_animation("Spawn")
 	skin.connect("animation_finished", _on_PlayerSkin_animation_finished)
 

@@ -10,7 +10,7 @@ func physics_process(delta: float) -> void:
 	player.set_direction(input_direction.x)
 	
 	if player.direction != 0:
-		player.move(player.acceleration, player.direction, player.max_speed * abs(input_direction.x), delta)
+		player.move(player.acceleration, player.direction, player.max_speed, delta)
 	
 	if player.is_on_floor() and player.direction == 0:
 		player.decelerate(player.deceleration, delta)
@@ -24,3 +24,4 @@ func physics_process(delta: float) -> void:
 func enter(msg: Dictionary = {}) -> void:
 	if "from_climb" in msg:
 		_climb_cooldown_timer.start()
+	
