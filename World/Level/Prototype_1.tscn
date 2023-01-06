@@ -86,4 +86,3 @@ path = NodePath("../CameraInfluence")
 rect_limit = NodePath("../RectLimit")
 
 [node name="Player" parent="." instance=ExtResource("7_mk5co")]
-position = Vector2(1896, -16)

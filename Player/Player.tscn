@@ -29,8 +29,8 @@ size = Vector2(10, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7d2ke"]
 size = Vector2(12, 18)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2ylet"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pen4i"]
+size = Vector2(14, 20)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -78,7 +78,7 @@ collision_mask = 32
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashZoneDetector"]
-shape = SubResource("CircleShape2D_2ylet")
+shape = SubResource("RectangleShape2D_pen4i")
 
 [node name="WallDetector" type="Marker2D" parent="."]
 position = Vector2(0, -9)

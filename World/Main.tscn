@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://World/GameEvents.gd" id="1_gqg0u"]
 [ext_resource type="PackedScene" path="res://transition/transition.tscn" id="2_2puoy"]
-[ext_resource type="PackedScene" path="res://World/Level/Prototype_1.tscn" id="2_uo3fa"]
+[ext_resource type="PackedScene" uid="uid://bcb2w60xbuaer" path="res://World/Level/Prototype_1.tscn" id="2_uo3fa"]
 [ext_resource type="Resource" uid="uid://blqcviaifmvrs" path="res://GameEvents/GameplayEvents.tres" id="2_w5pcb"]
 
 [node name="Main" type="Node"]
