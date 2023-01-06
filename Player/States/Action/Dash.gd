@@ -43,8 +43,8 @@ func exit() -> void:
 
 
 func _set_dash_effect(value: bool) -> void:
-	var direction = [1.0, 0.0]
-	var t = create_tween()
+	var direction: Array = [1.0, 0.0]
+	var t: Tween = create_tween()
 	if value:
 		t.tween_method(player.skin.set_rainbow_intensity, 0.0, 1.0, 0.1)
 	else:

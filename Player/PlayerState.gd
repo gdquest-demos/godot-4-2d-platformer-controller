@@ -4,7 +4,7 @@ class_name PlayerState
 var player: Player
 var gameplay_events: GameplayEvents
 var skin: PlayerSkin
-var dash_zone_detector: DashZoneDector
+var dash_zone_detector: Area2D
 var wall_detector: WallDetector
 var magic_trail: MagicTrail
 

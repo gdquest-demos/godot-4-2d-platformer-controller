@@ -6,7 +6,7 @@ var _jump_released: bool = false
 
 
 func physics_process(delta: float) -> void:
-	var x_input_direction: float = sign(Input.get_axis("move_left", "move_right"))
+	var x_input_direction: float = sign(Input.get_axis("move_left", "move_right")) # Using sign(_parent.input_direction.x) doesn't work
 	
 	wall_detector.set_direction(sign(player.velocity.x))
 	
@@ -19,7 +19,7 @@ func physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("dash") and player.can_dash:
 		player.can_dash = false
-		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction })
+		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction.normalized() })
 		return
 
 	if player.is_on_floor():

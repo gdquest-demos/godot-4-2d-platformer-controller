@@ -2,7 +2,7 @@ extends PlayerState
 
 
 func physics_process(delta: float) -> void:
-	var x_input_direction: float = sign(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
+	var input_direction: Vector2 = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down")).normalized()
 	
 	player.move_y(player.acceleration, 1, player.slide_speed, delta)
 	skin.play_animation("SlideDown")
@@ -12,8 +12,13 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to("Movement/Air", { jumped = true, direction = wall_detector.get_direction() })
 		return
 	
-	if not (wall_detector.is_against_wall() and x_input_direction == wall_detector.get_direction() and player.velocity.y > 0):
+	if not (wall_detector.is_against_wall() and sign(input_direction.x) == wall_detector.get_direction() and player.velocity.y > 0):
 		_state_machine.transition_to("Movement/Air")
+		return
+	
+	if Input.is_action_just_pressed("dash") and player.can_dash:
+		player.can_dash = false
+		_state_machine.transition_to("Action/Dash", { direction = input_direction.normalized() })
 
 
 func enter(msg: Dictionary = {}) -> void:

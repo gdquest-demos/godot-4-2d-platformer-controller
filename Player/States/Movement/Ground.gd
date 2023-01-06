@@ -6,7 +6,7 @@ extends PlayerState
 func physics_process(delta: float) -> void:
 	if player.direction:
 		skin.set_direction(player.direction)
-		skin.play_animation("Run", _parent.x_input)
+		skin.play_animation("Run", _parent.input_direction.x)
 		wall_detector.set_direction(player.direction)
 	else:
 		skin.play_animation("Idle")
@@ -19,7 +19,7 @@ func physics_process(delta: float) -> void:
 		return
 	elif Input.is_action_just_pressed("dash") and _dash_cooldown_timer.is_stopped():
 		player.can_dash = false
-		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction })
+		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction.normalized() })
 		return
 		
 	_parent.physics_process(delta)

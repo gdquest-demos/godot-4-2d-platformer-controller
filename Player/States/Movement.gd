@@ -1,14 +1,13 @@
 extends PlayerState
 
 var input_direction := Vector2.ZERO
-var x_input := 0.0
 
 @onready var _climb_cooldown_timer: Timer = $ClimbCooldownTimer
 
 
 func physics_process(delta: float) -> void:
-	x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	player.set_direction(x_input)
+	input_direction = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down")).limit_length(1)
+	player.set_direction(input_direction.x)
 	
 	if player.direction != 0:
 		player.move(player.acceleration, player.direction, player.max_speed, delta)
@@ -18,8 +17,6 @@ func physics_process(delta: float) -> void:
 	
 	player.apply_gravity(delta)
 
-	input_direction = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down")).normalized()
-	
 	if wall_detector.is_against_wall() and Input.is_action_pressed("grab") and _climb_cooldown_timer.is_stopped():
 		_state_machine.transition_to("Action/Climb")
 

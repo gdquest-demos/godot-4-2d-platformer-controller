@@ -9,11 +9,6 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "Area2D",
-"class": &"DashZoneDector",
-"language": &"GDScript",
-"path": "res://Player/DashZoneDetector.gd"
-}, {
 "base": "Resource",
 "class": &"GameplayEvents",
 "language": &"GDScript",
@@ -60,7 +55,6 @@ _global_script_classes=[{
 "path": "res://Player/WallDetector.gd"
 }]
 _global_script_class_icons={
-"DashZoneDector": "",
 "GameplayEvents": "",
 "MagicTrail": "",
 "Player": "",
