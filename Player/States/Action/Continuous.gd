@@ -2,7 +2,7 @@ extends PlayerState
 
 
 func physics_process(delta: float) -> void:
-	if player.is_on_floor() or player.is_on_wall() or player.is_on_ceiling():
+	if player.get_slide_collision_count() > 0:
 		_state_machine.transition_to("Die")
 
 
