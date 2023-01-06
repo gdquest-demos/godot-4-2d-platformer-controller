@@ -47,7 +47,7 @@ _global_script_classes=[{
 "base": "ColorRect",
 "class": &"Transition",
 "language": &"GDScript",
-"path": "res://transition/transition.gd"
+"path": "res://Transition/Transition.gd"
 }, {
 "base": "Marker2D",
 "class": &"WallDetector",
