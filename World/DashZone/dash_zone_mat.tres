@@ -1,0 +1,45 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://1gnstwrcbp6y"]
+
+[ext_resource type="Shader" path="res://World/DashZone/dash_zone.gdshader" id="1_4mahv"]
+[ext_resource type="Texture2D" uid="uid://bbxb64p7tv5ha" path="res://World/DashZone/color_noise.png" id="2_ohh42"]
+
+[sub_resource type="Gradient" id="Gradient_maa3m"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 0.309804, 0.631373, 1, 0.992691, 0.798107, 0, 1, 0.245402, 0.62206, 1, 1, 1, 0.309804, 0.631373, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jsck6"]
+gradient = SubResource("Gradient_maa3m")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d3td1"]
+noise_type = 3
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iq5m7"]
+seamless = true
+noise = SubResource("FastNoiseLite_d3td1")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v4bv1"]
+frequency = 0.039
+fractal_type = 0
+cellular_jitter = 1.452
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qunrd"]
+width = 256
+height = 256
+as_normal_map = true
+noise = SubResource("FastNoiseLite_v4bv1")
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_4mahv")
+shader_parameter/screen_ratio = 3
+shader_parameter/ratio = 1.0
+shader_parameter/base_color = Color(0.113725, 0.105882, 0.32549, 1)
+shader_parameter/highlight_color = Color(0.921569, 0.811765, 0.92549, 1)
+shader_parameter/r_displacement = null
+shader_parameter/g_displacement = null
+shader_parameter/b_displacement = null
+shader_parameter/sparkles_noise_sampler = ExtResource("2_ohh42")
+shader_parameter/color_gradient_sampler = SubResource("GradientTexture1D_jsck6")
+shader_parameter/displacement_noise_sampler = SubResource("NoiseTexture2D_iq5m7")
+shader_parameter/normal_noise_sampler = SubResource("NoiseTexture2D_qunrd")
