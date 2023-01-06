@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b664x8ucf27ol" path="res://assets/tiles/grey_brick_auto_tileset.png" id="10_i1sip"]
 [ext_resource type="Texture2D" uid="uid://3xuf0unpvj3c" path="res://assets/tiles/bricks_background_tileset.png" id="11_0dgml"]
 [ext_resource type="PackedScene" uid="uid://c3n71t3wf11gw" path="res://Player/Player.tscn" id="12_im8oa"]
-[ext_resource type="Script" path="res://Camera.gd" id="13_chy2n"]
+[ext_resource type="Script" path="res://camera.gd" id="13_chy2n"]
 [ext_resource type="Script" path="res://RectEditor.gd" id="14_k15go"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyjfk"]

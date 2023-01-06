@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3n71t3wf11gw"]
+[gd_scene load_steps=23 format=3 uid="uid://ctr4nwoc33vrt"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
 [ext_resource type="PackedScene" uid="uid://c85thnm0n175x" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
@@ -7,9 +7,9 @@
 [ext_resource type="Script" path="res://Player/WallDetector.gd" id="3_dlkw6"]
 [ext_resource type="Script" path="res://Player/VFX.gd" id="3_gagin"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_uvkbh"]
+[ext_resource type="PackedScene" uid="uid://dumieijkncl8u" path="res://vfx/explosion/explosion.tscn" id="4_2rxer"]
 [ext_resource type="Script" path="res://Player/States/Spawn.gd" id="4_ffg6m"]
 [ext_resource type="Script" path="res://Player/States/Movement.gd" id="4_mh5a3"]
-[ext_resource type="PackedScene" uid="uid://bpxo7v4ljahwq" path="res://vfx/explosion/Explosion.tscn" id="4_otvch"]
 [ext_resource type="Script" path="res://Player/States/Movement/Ground.gd" id="5_enkpq"]
 [ext_resource type="Script" path="res://Player/PlayerState.gd" id="5_l20rl"]
 [ext_resource type="Script" path="res://Player/States/Movement/Air.gd" id="6_glbbq"]
@@ -42,7 +42,7 @@ skin_path = NodePath("PlayerSkin")
 [node name="VFX" type="Node2D" parent="."]
 position = Vector2(0, -9)
 script = ExtResource("3_gagin")
-explosion_scene = ExtResource("4_otvch")
+explosion_scene = ExtResource("4_2rxer")
 
 [node name="MagicTrail" parent="." instance=ExtResource("2_pl23o")]
 position = Vector2(0, -9)
