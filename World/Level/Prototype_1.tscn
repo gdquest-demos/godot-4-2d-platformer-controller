@@ -59,15 +59,15 @@ position = Vector2(2144, 170)
 
 [node name="DashZone" parent="DashZones" instance=ExtResource("4_gblkx")]
 position = Vector2(2368, 64)
-scale = Vector2(3.71524, 7.27524)
+size = Vector2(65, 140)
 
 [node name="DashZone2" parent="DashZones" instance=ExtResource("4_gblkx")]
 position = Vector2(2464, -112)
-scale = Vector2(3.73262, 13.1416)
+size = Vector2(65, 230)
 
 [node name="DashZone3" parent="DashZones" instance=ExtResource("4_gblkx")]
 position = Vector2(2608, -112)
-scale = Vector2(3.63524, 13.1552)
+size = Vector2(65, 230)
 
 [node name="CameraInfluence" type="Path2D" parent="."]
 curve = SubResource("Curve2D_a24nd")
