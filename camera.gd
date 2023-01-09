@@ -12,7 +12,6 @@ var _tiles_size = 16
 @onready var _min_size_ratio = _min_tiles_count * _tiles_size
 
 func _ready():
-	print(_min_size_ratio)
 	global_position = target.global_position
 	get_viewport().connect("size_changed", check_ratio)
 	check_ratio()
