@@ -11,6 +11,7 @@ gameplay_events = ExtResource("2_w5pcb")
 level_scene = ExtResource("2_uo3fa")
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 10
 
 [node name="Transition" parent="UI" instance=ExtResource("2_2puoy")]
 
