@@ -11,10 +11,11 @@ var _closest_points : Vector2
 func _ready():
 	if rect_limit:
 		var half_size = rect_limit.size / 2.0
-		limit_left = -half_size.x - position.x
-		limit_right = half_size.x - position.x
-		limit_top = -half_size.y + position.y
-		limit_bottom = half_size.y + position.y
+		var limit_offset = global_position - rect_limit.global_position
+		limit_left = -half_size.x - limit_offset.x
+		limit_right = half_size.x - limit_offset.x
+		limit_top = -half_size.y - limit_offset.y
+		limit_bottom = half_size.y - limit_offset.y
 
 	global_position = target.global_position
 
