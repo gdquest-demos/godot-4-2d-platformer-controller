@@ -69,6 +69,7 @@ explosion_scene = ExtResource("4_2rxer")
 position = Vector2(0, -9)
 
 [node name="Dust" type="GPUParticles2D" parent="."]
+z_index = 20
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_qaha4")
 texture = ExtResource("6_ffj5l")
