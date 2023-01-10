@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cag0vekmnvxqi"]
+
+[ext_resource type="Shader" path="res://vfx/sparkes/sparkes_particles.gdshader" id="1_2jt07"]
+[ext_resource type="Texture2D" uid="uid://44n351qw3v5h" path="res://assets/lucy/sparkes.png" id="2_kifjv"]
+
+[resource]
+shader = ExtResource("1_2jt07")
+shader_parameter/spritesheet_sampler = ExtResource("2_kifjv")

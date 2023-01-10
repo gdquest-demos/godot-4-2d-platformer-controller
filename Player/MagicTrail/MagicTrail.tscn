@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmf8pxak8nswu"]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Shader" path="res://Player/MagicTrail/MagicTrail.gdshader" id="1_sx7ky"]
 [ext_resource type="Script" path="res://Player/MagicTrail/MagicTrail.gd" id="2_f3yj5"]
-[ext_resource type="Shader" path="res://Player/MagicTrail/sparkes_particles.gdshader" id="3_thts5"]
+[ext_resource type="Shader" path="res://vfx/sparkes/sparkes_particles.gdshader" id="3_thts5"]
 [ext_resource type="Texture2D" uid="uid://44n351qw3v5h" path="res://assets/lucy/sparkes.png" id="4_ke18n"]
 
 [sub_resource type="Gradient" id="Gradient_maa3m"]

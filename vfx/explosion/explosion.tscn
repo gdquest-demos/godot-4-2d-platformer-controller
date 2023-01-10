@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dumieijkncl8u"]
+[gd_scene load_steps=39 format=3 uid="uid://dumieijkncl8u"]
 
 [ext_resource type="Script" path="res://vfx/explosion/explosion.gd" id="1_jc5la"]
 [ext_resource type="Texture2D" uid="uid://c1s8lnh82hdlw" path="res://vfx/explosion/explosion_0/0001.png" id="2_6gyrq"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://c24ny3hufl3fn" path="res://vfx/explosion/explosion_2/0005.png" id="26_q0us1"]
 [ext_resource type="Texture2D" uid="uid://cxfnc0oq6s5td" path="res://vfx/explosion/explosion_2/0007.png" id="28_118l1"]
 [ext_resource type="Texture2D" uid="uid://cva1ln0gv4emy" path="res://vfx/explosion/explosion_2/0009.png" id="30_hhmjx"]
+[ext_resource type="Material" uid="uid://cag0vekmnvxqi" path="res://vfx/sparkes/sparkes_particles_mat.tres" id="32_hti0i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bfj65"]
 animations = [{
@@ -50,6 +51,41 @@ animations = [{
 "speed": 18.0
 }]
 
+[sub_resource type="Curve" id="Curve_i6krt"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_v2cv1"]
+curve = SubResource("Curve_i6krt")
+
+[sub_resource type="Curve" id="Curve_f6uwv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hbe5w"]
+curve = SubResource("Curve_f6uwv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1sw6j"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, -50, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 0.5
+damping_max = 2.0
+damping_curve = SubResource("CurveTexture_v2cv1")
+scale_min = 5.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_hbe5w")
+anim_speed_min = 0.1
+anim_speed_max = 3.0
+
 [node name="ExplosionVFX" type="Node2D"]
 script = ExtResource("1_jc5la")
 
@@ -57,3 +93,13 @@ script = ExtResource("1_jc5la")
 frames = SubResource("SpriteFrames_bfj65")
 animation = &"1"
 playing = true
+
+[node name="Sparkes" type="GPUParticles2D" parent="."]
+material = ExtResource("32_hti0i")
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_1sw6j")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+local_coords = true
