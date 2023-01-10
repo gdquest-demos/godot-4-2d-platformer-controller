@@ -37,3 +37,17 @@ func play_animation(animation_name: String, animation_speed: float = 1.0, from_p
 
 func _on_animation_finished(anim_name: String) -> void:
 	emit_signal("animation_finished", anim_name)
+
+func _on_touched_ground():
+	var t = create_tween()
+	t.tween_property(_animated_sprite, "scale", Vector2(1.1,0.9), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	t.tween_property(_animated_sprite, "scale", Vector2(0.9,1.1), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	t.tween_property(_animated_sprite, "scale", Vector2.ONE, 0.15)
+	
+
+func _on_jumped():
+	var t = create_tween()
+	t.tween_property(_animated_sprite, "scale", Vector2(1.2,0.8), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	t.tween_property(_animated_sprite, "scale", Vector2(0.8,1.2), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	t.tween_property(_animated_sprite, "scale", Vector2.ONE, 0.15)
+	

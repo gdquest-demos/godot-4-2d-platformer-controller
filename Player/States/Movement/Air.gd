@@ -23,6 +23,7 @@ func physics_process(delta: float) -> void:
 		return
 
 	if player.is_on_floor():
+		player.emit_signal("touched_ground")
 		_state_machine.transition_to("Movement/Ground")
 		return
 	
@@ -45,6 +46,7 @@ func enter(msg: Dictionary = {}) -> void:
 	_parent.enter(msg)
 	
 	if "jumped" in msg:
+		player.emit_signal("jumped")
 		if "direction" in msg:
 			player.set_velocity(Vector2(msg.direction * player.jump_speed, player.jump_speed))
 			skin.set_direction(msg.direction)

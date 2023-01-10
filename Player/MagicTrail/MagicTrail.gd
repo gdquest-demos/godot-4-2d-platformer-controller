@@ -15,7 +15,6 @@ func _ready() -> void:
 	set_active(false)
 	_reset_points()
 
-
 func _process(delta: float) -> void:
 	var local_p : PackedVector2Array = []
 	for i in resolution:
@@ -33,14 +32,12 @@ func set_active(value) -> void:
 	
 	var t = create_tween()
 	if _is_active:
-		set_process(true)
-		_reset_points()
 		t.tween_property(self, "modulate:a", 1.0, 0.1)
 	else:
-		t.tween_property(self, "modulate:a", 0.0, 0.5).set_delay(0.2)
+		t.tween_property(self, "modulate:a", 0.0, 0.5)
 		await t.finished
-		set_process(false)
-
+		if !_is_active:
+			_reset_points()
 
 func _reset_points() -> void:
 	points = []

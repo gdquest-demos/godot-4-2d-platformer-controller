@@ -59,9 +59,9 @@ sources/0 = SubResource("TileSetAtlasSource_jqwh2")
 
 [sub_resource type="Curve2D" id="Curve2D_a24nd"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 112, 56, 0, 0, 0, 0, 224, 112, 0, 0, 0, 0, 512, 112, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 808, 0, 0, 0, 0, 0, 808, 120, 0, 0, 0, 0, 928, 120, 0, 0, 0, 0, 928, 272, 0, 0, 0, 0, 1080, 272, 0, 0, 0, 0, 1080, 168, 0, 0, 0, 0, 1264, 168, 0, 0, 0, 0, 1264, 0, 0, 0, 0, 0, 1408, 0, 0, 0, 0, 0, 1408, 112, 0, 0, 0, 0, 1624, 112, 0, 0, 0, 0, 1848, -32, 0, 0, 0, 0, 1984, -32, 0, 0, 0, 0, 1984, 176, 0, 0, 0, 0, 2104, 176)
+"points": PackedVector2Array(0, 0, 0, 0, -144, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 256, 104, 0, 0, 0, 0, 512, 104, 0, 0, 0, 0, 512, 64, 0, 0, 0, 0, 576, 0, 0, 0, 0, 0, 784, 0, 0, 0, 0, 0, 800, 112, 0, 0, 0, 0, 928, 136, 0, 0, 0, 0, 928, 272, 0, 0, 0, 0, 1080, 272, 0, 0, 0, 0, 1080, 168, 0, 0, 0, 0, 1264, 168, 0, 0, 0, 0, 1264, 0, 0, 0, 0, 0, 1408, 0, 0, 0, 0, 0, 1408, 112, 0, 0, 0, 0, 1624, 112, 0, 0, 0, 0, 1848, -32, 0, 0, 0, 0, 1984, -32, 0, 0, 0, 0, 1984, 176, 0, 0, 0, 0, 2104, 176)
 }
-point_count = 19
+point_count = 21
 
 [node name="Level" type="Node2D"]
 
@@ -204,7 +204,6 @@ script = ExtResource("5_qfsal")
 size = Vector2(2576, 496)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target", "path", "rect_limit")]
-offset = Vector2(0, -32)
 current = true
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
@@ -212,6 +211,7 @@ position_smoothing_speed = 15.0
 script = ExtResource("6_aa3th")
 target = NodePath("../Player")
 path = NodePath("../CameraInfluence")
+influence_max_distance = 150.0
 rect_limit = NodePath("../RectLimit")
 
 [node name="Player" parent="." instance=ExtResource("7_mk5co")]

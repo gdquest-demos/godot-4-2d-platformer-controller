@@ -8,8 +8,10 @@ func physics_process(delta: float) -> void:
 		skin.set_direction(player.direction)
 		skin.play_animation("Run", _parent.input_direction.x)
 		wall_detector.set_direction(player.direction)
+		player._set_is_walking(true)
 	else:
 		skin.play_animation("Idle")
+		player._set_is_walking(false)
 
 	if not player.is_on_floor():
 		_state_machine.transition_to("Movement/Air")
@@ -33,3 +35,6 @@ func enter(msg: Dictionary = {}) -> void:
 	
 	if "from_dash" in msg:
 		_dash_cooldown_timer.start()
+
+func exit():
+	player._set_is_walking(false)

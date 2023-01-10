@@ -35,7 +35,17 @@ var can_dash := true
 
 @onready var _state_machine: StateMachine = $StateMachine
 
+var _is_walking = false : set = _set_is_walking
 
+signal walk_state_change(state : bool)
+signal touched_ground
+signal jumped
+
+func _set_is_walking(value):
+	if _is_walking == value: return
+	_is_walking = value
+	emit_signal("walk_state_change", _is_walking)
+	
 func _ready() -> void:
 	hurt_box.connect("body_entered", _on_HurtBox_body_entered)
 	pickup_detector.connect("area_entered", _on_PickupDetector_area_entered)

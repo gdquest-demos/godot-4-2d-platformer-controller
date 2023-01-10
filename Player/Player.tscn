@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctr4nwoc33vrt"]
+[gd_scene load_steps=28 format=3 uid="uid://ctr4nwoc33vrt"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_deiey"]
 [ext_resource type="PackedScene" uid="uid://c85thnm0n175x" path="res://Player/PlayerSkin/PlayerSkin.tscn" id="1_elpj3"]
@@ -12,12 +12,33 @@
 [ext_resource type="Script" path="res://Player/States/Movement.gd" id="4_mh5a3"]
 [ext_resource type="Script" path="res://Player/States/Movement/Ground.gd" id="5_enkpq"]
 [ext_resource type="Script" path="res://Player/PlayerState.gd" id="5_l20rl"]
+[ext_resource type="Script" path="res://Player/dust.gd" id="6_cgar8"]
+[ext_resource type="Texture2D" uid="uid://vcwnftmgqlr4" path="res://assets/lucy/dust_sprite.png" id="6_ffj5l"]
 [ext_resource type="Script" path="res://Player/States/Movement/Air.gd" id="6_glbbq"]
 [ext_resource type="Script" path="res://Player/States/Die.gd" id="9_tr2qq"]
 [ext_resource type="Script" path="res://Player/States/Action/Dash.gd" id="9_w40pj"]
 [ext_resource type="Script" path="res://Player/States/Action/Climb.gd" id="11_a57d7"]
 [ext_resource type="Script" path="res://Player/States/Action/SlideDown.gd" id="13_lmfmp"]
 [ext_resource type="Script" path="res://Player/States/Action/Continuous.gd" id="14_2kve7"]
+
+[sub_resource type="Curve" id="Curve_rfexl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3xgy5"]
+curve = SubResource("Curve_rfexl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qaha4"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_3xgy5")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgf8f"]
 radius = 4.0
@@ -46,6 +67,16 @@ explosion_scene = ExtResource("4_2rxer")
 
 [node name="MagicTrail" parent="." instance=ExtResource("2_pl23o")]
 position = Vector2(0, -9)
+
+[node name="Dust" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_qaha4")
+texture = ExtResource("6_ffj5l")
+lifetime = 1.25
+explosiveness = 0.05
+randomness = 0.05
+trail_lifetime = 0.01
+script = ExtResource("6_cgar8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
@@ -148,3 +179,7 @@ script = ExtResource("13_lmfmp")
 
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource("9_tr2qq")
+
+[connection signal="jumped" from="." to="PlayerSkin" method="_on_jumped"]
+[connection signal="touched_ground" from="." to="PlayerSkin" method="_on_touched_ground"]
+[connection signal="walk_state_change" from="." to="Dust" method="_on_walking_state_change"]
