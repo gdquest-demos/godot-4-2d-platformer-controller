@@ -8,10 +8,10 @@ func physics_process(delta: float) -> void:
 		skin.set_direction(player.direction)
 		skin.play_animation("Run", _parent.input_direction.x)
 		wall_detector.set_direction(player.direction)
-		player._set_is_walking(true)
+		dust.set_emitting(true)
 	else:
 		skin.play_animation("Idle")
-		player._set_is_walking(false)
+		dust.set_emitting(false)
 
 	if not player.is_on_floor():
 		_state_machine.transition_to("Movement/Air")
@@ -20,7 +20,7 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to("Movement/Air", { jumped = true })
 		return
 	elif Input.is_action_just_pressed("dash") and _dash_cooldown_timer.is_stopped():
-		player.can_dash = false
+		player.set_can_dash(false)
 		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction.normalized() })
 		return
 		
@@ -29,12 +29,13 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	player.set_snap()
-	player.can_dash = true
+	player.set_can_dash(true)
 	
 	gameplay_events.emit_signal("dash_enabled")
 	
 	if "from_dash" in msg:
 		_dash_cooldown_timer.start()
 
+
 func exit():
-	player._set_is_walking(false)
+	dust.set_emitting(false)

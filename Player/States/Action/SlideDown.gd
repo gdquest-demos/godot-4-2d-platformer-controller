@@ -17,10 +17,10 @@ func physics_process(delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed("dash") and player.can_dash:
-		player.can_dash = false
+		player.set_can_dash(false)
 		_state_machine.transition_to("Action/Dash", { direction = input_direction.normalized() })
 
 
 func enter(msg: Dictionary = {}) -> void:
-	player.can_dash = true
+	player.set_can_dash(true)
 	gameplay_events.emit_signal("dash_enabled")

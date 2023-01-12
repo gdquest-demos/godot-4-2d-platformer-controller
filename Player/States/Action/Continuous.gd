@@ -15,7 +15,7 @@ func enter(msg: Dictionary = {}) -> void:
 func exit() -> void:
 	gameplay_events.emit_signal("dash_ended")
 	dash_zone_detector.disconnect("area_exited", _on_DashZoneDetector_area_exited)
-	player.can_dash = true
+	player.set_can_dash(true)
 
 
 func _on_DashZoneDetector_area_exited(area: Area2D) -> void:

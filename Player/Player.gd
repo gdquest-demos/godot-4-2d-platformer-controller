@@ -16,7 +16,7 @@ class_name Player
 @export var jump_cut_value := 15
 
 var direction := 0.0 : set = set_direction
-var can_dash := true
+var can_dash := true : set = set_can_dash
 
 @onready var skin: PlayerSkin = get_node(skin_path)
 @onready var hurt_box: Area2D = $HurtBox
@@ -33,19 +33,11 @@ var can_dash := true
 @onready var jump_cut_speed: float = fall_gravity / jump_cut_value
 @onready var respawn_position: Vector2 = global_position : set = set_respawn_position
 
+@onready var dust: GPUParticles2D = $Dust
+
 @onready var _state_machine: StateMachine = $StateMachine
 
-var _is_walking = false : set = _set_is_walking
 
-signal walk_state_change(state : bool)
-signal touched_ground
-signal jumped
-
-func _set_is_walking(value):
-	if _is_walking == value: return
-	_is_walking = value
-	emit_signal("walk_state_change", _is_walking)
-	
 func _ready() -> void:
 	hurt_box.connect("body_entered", _on_HurtBox_body_entered)
 	pickup_detector.connect("area_entered", _on_PickupDetector_area_entered)
@@ -61,6 +53,10 @@ func initialize() -> void:
 
 func set_direction(value: float) -> void:
 	direction = value
+
+
+func set_can_dash(value: bool) -> void:
+	can_dash = value
 
 
 func set_respawn_position(value: Vector2) -> void:

@@ -18,12 +18,12 @@ func physics_process(delta: float) -> void:
 		return
 
 	if Input.is_action_just_pressed("dash") and player.can_dash:
-		player.can_dash = false
+		player.set_can_dash(false)
 		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction.normalized() })
 		return
 
 	if player.is_on_floor():
-		player.emit_signal("touched_ground")
+		skin.play_tween_touch_ground()
 		_state_machine.transition_to("Movement/Ground")
 		return
 	
@@ -46,7 +46,6 @@ func enter(msg: Dictionary = {}) -> void:
 	_parent.enter(msg)
 	
 	if "jumped" in msg:
-		player.emit_signal("jumped")
 		if "direction" in msg:
 			player.set_velocity(Vector2(msg.direction * player.jump_speed, player.jump_speed))
 			skin.set_direction(msg.direction)
@@ -54,6 +53,7 @@ func enter(msg: Dictionary = {}) -> void:
 			player.jump(-player.jump_speed)
 		skin.play_animation("Jump")
 		skin.connect("animation_finished", _on_Skin_animation_finished)
+		skin.play_tween_jump()
 	elif "climbed" in msg:
 		if player.velocity.y < 0:
 			player.jump(player.jump_cut_speed)

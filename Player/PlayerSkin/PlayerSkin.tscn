@@ -34,32 +34,86 @@ shader_parameter/gradient_color = SubResource("GradientTexture1D_1lp6n")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jlfip"]
 animations = [{
-"frames": [ExtResource("6_w46dk"), ExtResource("5_0gek6"), ExtResource("4_oawk2"), ExtResource("3_ygm1t")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w46dk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0gek6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oawk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ygm1t")
+}],
 "loop": false,
 "name": &"Dash",
 "speed": 10.0
 }, {
-"frames": [ExtResource("8_a3hia")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_a3hia")
+}],
 "loop": false,
 "name": &"Die",
 "speed": 5.0
 }, {
-"frames": [ExtResource("9_ppr1n"), ExtResource("8_daia3"), ExtResource("7_6ii12"), ExtResource("6_fchgq"), ExtResource("5_3ypc0")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ppr1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_daia3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6ii12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fchgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3ypc0")
+}],
 "loop": true,
 "name": &"Idle",
 "speed": 10.0
 }, {
-"frames": [ExtResource("11_d5l0o")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_d5l0o")
+}],
 "loop": false,
 "name": &"Jump",
 "speed": 10.0
 }, {
-"frames": [ExtResource("13_tvqvs"), ExtResource("12_c4wlp"), ExtResource("11_d5l0o"), ExtResource("10_d2i8p"), ExtResource("9_c00j0"), ExtResource("8_yuvf2")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_tvqvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c4wlp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_d5l0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d2i8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c00j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yuvf2")
+}],
 "loop": true,
 "name": &"Run",
 "speed": 15.0
 }, {
-"frames": [ExtResource("20_y83x1")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_y83x1")
+}],
 "loop": true,
 "name": &"Slide",
 "speed": 5.0

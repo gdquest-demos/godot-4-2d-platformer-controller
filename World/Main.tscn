@@ -14,5 +14,6 @@ level_scene = ExtResource("2_uo3fa")
 layer = 10
 
 [node name="Transition" parent="UI" instance=ExtResource("2_2puoy")]
+anchors_preset = 0
 
 [node name="LevelHolder" type="Node" parent="."]
