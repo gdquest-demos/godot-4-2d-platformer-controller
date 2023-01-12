@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdocgqtqx7avv"]
+[gd_scene load_steps=17 format=3 uid="uid://bhdxrtqgvcqop"]
 
 [ext_resource type="TileSet" uid="uid://biscvhoof1cg5" path="res://assets/main_tileset.tres" id="1_5c5m1"]
 [ext_resource type="Texture2D" uid="uid://bkow0t8ktw6a8" path="res://assets/tiles/8x8_geo.png" id="1_uc2ty"]
@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bl1k5rcvurfek" path="res://World/DashZone/DashZone.tscn" id="4_gblkx"]
 [ext_resource type="Script" path="res://RectEditor.gd" id="5_qfsal"]
 [ext_resource type="Script" path="res://camera.gd" id="6_aa3th"]
-[ext_resource type="PackedScene" uid="uid://ctr4nwoc33vrt" path="res://Player/Player.tscn" id="7_mk5co"]
-[ext_resource type="PackedScene" uid="uid://daew32hfhtfml" path="res://World/croco_info/croco_info.tscn" id="10_qsxrf"]
+[ext_resource type="PackedScene" uid="uid://yoj7060uvqac" path="res://Player/Player.tscn" id="7_mk5co"]
+[ext_resource type="PackedScene" path="res://World/CrocoInfo/CrocoInfo.tscn" id="10_qsxrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyjfk"]
 texture = ExtResource("1_uc2ty")
@@ -219,6 +219,7 @@ size = Vector2(2900, 496)
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target", "path", "rect_limit")]
 current = true
 zoom = Vector2(4, 4)
+process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 script = ExtResource("6_aa3th")

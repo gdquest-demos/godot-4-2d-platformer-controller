@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://daew32hfhtfml"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="Script" path="res://World/croco_info/croco_info.gd" id="1_xw88f"]
+[ext_resource type="Script" path="res://World/CrocoInfo/CrocoInfo.gd" id="1_xw88f"]
 [ext_resource type="Texture2D" uid="uid://blhd2tb6ycp0o" path="res://assets/croco/idle/000.png" id="2_s3shg"]
 [ext_resource type="Texture2D" uid="uid://cd4w3cnjttg0o" path="res://assets/croco/idle/001.png" id="3_3u7j0"]
-[ext_resource type="Script" path="res://World/croco_info/bubble.gd" id="3_hta5s"]
+[ext_resource type="Script" path="res://World/CrocoInfo/Bubble.gd" id="3_hta5s"]
 [ext_resource type="Texture2D" uid="uid://cqixi2bh23ktl" path="res://assets/croco/idle/002.png" id="4_ru76i"]
 [ext_resource type="Texture2D" uid="uid://bn445xcu2fj4r" path="res://assets/croco/idle/003.png" id="5_oadgy"]
 

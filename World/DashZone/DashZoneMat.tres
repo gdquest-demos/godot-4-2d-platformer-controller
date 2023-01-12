@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://vs58gpiep6oa"]
+[gd_resource type="ShaderMaterial" load_steps=9 format=3]
 
-[ext_resource type="Shader" path="res://World/DashZone/dash_zone.gdshader" id="1_4mahv"]
+[ext_resource type="Shader" path="res://World/DashZone/DashZone.gdshader" id="1_4mahv"]
 [ext_resource type="Texture2D" uid="uid://bbxb64p7tv5ha" path="res://World/DashZone/color_noise.png" id="2_ohh42"]
 
 [sub_resource type="Gradient" id="Gradient_maa3m"]
