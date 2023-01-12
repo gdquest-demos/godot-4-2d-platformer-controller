@@ -17,8 +17,8 @@ func physics_process(delta: float) -> void:
 	
 	player.apply_gravity(delta)
 
-	if wall_detector.is_against_wall() and Input.is_action_pressed("grab") and _climb_cooldown_timer.is_stopped():
-		_state_machine.transition_to("Action/Climb")
+#	if wall_detector.is_against_wall() and Input.is_action_pressed("grab") and _climb_cooldown_timer.is_stopped():
+#		_state_machine.transition_to("Action/Climb")
 
 
 func enter(msg: Dictionary = {}) -> void:
