@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdocgqtqx7avv"]
+[gd_scene load_steps=22 format=3 uid="uid://cdocgqtqx7avv"]
 
 [ext_resource type="TileSet" uid="uid://biscvhoof1cg5" path="res://assets/main_tileset.tres" id="1_5c5m1"]
 [ext_resource type="Texture2D" uid="uid://bkow0t8ktw6a8" path="res://assets/tiles/8x8_geo.png" id="1_uc2ty"]
@@ -10,6 +10,10 @@
 [ext_resource type="Script" path="res://camera.gd" id="6_aa3th"]
 [ext_resource type="PackedScene" uid="uid://ctr4nwoc33vrt" path="res://Player/Player.tscn" id="7_mk5co"]
 [ext_resource type="PackedScene" uid="uid://daew32hfhtfml" path="res://World/croco_info/croco_info.tscn" id="10_qsxrf"]
+[ext_resource type="Material" uid="uid://cggi2lc3snnsh" path="res://World/water/water_mat.tres" id="11_k4reo"]
+[ext_resource type="Shader" path="res://World/water/water.gdshader" id="11_s7jmc"]
+[ext_resource type="Texture2D" uid="uid://bw4txfggvec2g" path="res://World/water/wave_texture.png" id="12_yxwn5"]
+[ext_resource type="Script" path="res://World/water/water.gd" id="13_xcpu1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyjfk"]
 texture = ExtResource("1_uc2ty")
@@ -63,13 +67,23 @@ _data = {
 }
 point_count = 21
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3vtuo"]
+resource_local_to_scene = true
+shader = ExtResource("11_s7jmc")
+shader_parameter/edge_color = Color(1, 1, 1, 1)
+shader_parameter/highlight_color = Color(0.882353, 0.937255, 1, 1)
+shader_parameter/water_color = Color(0.14902, 0.576471, 1, 1)
+shader_parameter/height = 144.0
+shader_parameter/ratio = 5.33333
+shader_parameter/wave_scale = null
+shader_parameter/wave_texture_sampler = ExtResource("12_yxwn5")
+
 [node name="Level" type="Node2D"]
 
 [node name="BG" type="CanvasLayer" parent="."]
 layer = -10
 
 [node name="SkyColor" type="ColorRect" parent="BG"]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -236,3 +250,21 @@ lines = PackedStringArray("You can slide down a wall by jumping onto it.", "Do i
 
 [node name="croco_info_dash" parent="." instance=ExtResource("10_qsxrf")]
 position = Vector2(784, 145)
+
+[node name="Water" type="ColorRect" parent="."]
+z_index = 5
+material = ExtResource("11_k4reo")
+offset_left = -144.0
+offset_top = 168.0
+offset_right = 488.0
+offset_bottom = 320.0
+script = ExtResource("13_xcpu1")
+
+[node name="Water2" type="ColorRect" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_3vtuo")
+offset_left = 576.0
+offset_top = 304.0
+offset_right = 1344.0
+offset_bottom = 448.0
+script = ExtResource("13_xcpu1")
