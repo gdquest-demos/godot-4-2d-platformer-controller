@@ -1,10 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuhh8ixkpems1"]
+[gd_scene load_steps=10 format=3 uid="uid://cuhh8ixkpems1"]
 
-[ext_resource type="Texture2D" uid="uid://c3slgx3jm2vpa" path="res://_Placeholders/industrial.v2.png" id="1_hphva"]
 [ext_resource type="Script" path="res://World/DashGem/DashGem.gd" id="1_lwm6e"]
 [ext_resource type="Resource" uid="uid://blqcviaifmvrs" path="res://GameEvents/GameplayEvents.tres" id="2_8tfnc"]
+[ext_resource type="Texture2D" uid="uid://cngtsvgjd34my" path="res://assets/gem/0000.png" id="3_uqcuu"]
+[ext_resource type="Texture2D" uid="uid://c642uqpv75cw2" path="res://assets/gem/0001.png" id="4_3b3kq"]
+[ext_resource type="Texture2D" uid="uid://rpmjycnrpuh1" path="res://assets/gem/0002.png" id="5_eq0ge"]
+[ext_resource type="Texture2D" uid="uid://3kxsf4q26jav" path="res://assets/gem/0003.png" id="6_5b7ra"]
+[ext_resource type="Texture2D" uid="uid://bia88m0tq31cy" path="res://assets/gem/0004.png" id="7_sgavt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xik5o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_omdxo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uqcuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3b3kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eq0ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5b7ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sgavt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="DashGem" type="Area2D"]
 collision_layer = 16
@@ -16,11 +43,9 @@ gameplay_events = ExtResource("2_8tfnc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xik5o")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_hphva")
-hframes = 32
-vframes = 32
-frame = 327
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_omdxo")
+playing = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

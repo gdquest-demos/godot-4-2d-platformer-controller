@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bl1k5rcvurfek" path="res://World/DashZone/DashZone.tscn" id="4_gblkx"]
 [ext_resource type="Script" path="res://RectEditor.gd" id="5_qfsal"]
 [ext_resource type="Script" path="res://camera.gd" id="6_aa3th"]
-[ext_resource type="PackedScene" uid="uid://yoj7060uvqac" path="res://Player/Player.tscn" id="7_mk5co"]
+[ext_resource type="PackedScene" uid="uid://brdsbllfrxj4k" path="res://Player/Player.tscn" id="7_mk5co"]
 [ext_resource type="PackedScene" path="res://World/CrocoInfo/CrocoInfo.tscn" id="10_qsxrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyjfk"]

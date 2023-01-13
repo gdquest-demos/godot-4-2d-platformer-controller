@@ -3,7 +3,7 @@ extends Area2D
 @export var gameplay_events: GameplayEvents
 
 @onready var _collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var _sprite: Sprite2D = $Sprite2D
+@onready var _sprite: AnimatedSprite2D = $Sprite2D
 @onready var _timer: Timer = $Timer
 
 

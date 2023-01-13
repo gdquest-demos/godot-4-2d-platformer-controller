@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=9 format=3]
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://ef6jwylu67hc"]
 
 [ext_resource type="Shader" path="res://World/DashZone/DashZone.gdshader" id="1_4mahv"]
 [ext_resource type="Texture2D" uid="uid://bbxb64p7tv5ha" path="res://World/DashZone/color_noise.png" id="2_ohh42"]

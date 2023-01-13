@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw4txfggvec2g"
-path="res://.godot/imported/wave_texture.png-1f7b58efbd1b6800ac163c9b2fee36c8.ctex"
+uid="uid://rpmjycnrpuh1"
+path="res://.godot/imported/0002.png-30db97a9debad5f9653a513fa55f13de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/water/wave_texture.png"
-dest_files=["res://.godot/imported/wave_texture.png-1f7b58efbd1b6800ac163c9b2fee36c8.ctex"]
+source_file="res://assets/gem/0002.png"
+dest_files=["res://.godot/imported/0002.png-30db97a9debad5f9653a513fa55f13de.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
