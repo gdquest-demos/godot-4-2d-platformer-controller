@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhdxrtqgvcqop"]
+[gd_scene load_steps=27 format=3 uid="uid://bhdxrtqgvcqop"]
 
 [ext_resource type="TileSet" uid="uid://biscvhoof1cg5" path="res://assets/main_tileset.tres" id="1_5c5m1"]
 [ext_resource type="Texture2D" uid="uid://bkow0t8ktw6a8" path="res://assets/tiles/8x8_geo.png" id="1_uc2ty"]
@@ -10,6 +10,10 @@
 [ext_resource type="Script" path="res://camera.gd" id="6_aa3th"]
 [ext_resource type="PackedScene" uid="uid://brdsbllfrxj4k" path="res://Player/Player.tscn" id="7_mk5co"]
 [ext_resource type="PackedScene" path="res://World/CrocoInfo/CrocoInfo.tscn" id="10_qsxrf"]
+[ext_resource type="Shader" path="res://World/falling_leaves/falling_leaves.gdshader" id="11_1dk3v"]
+[ext_resource type="Shader" path="res://World/falling_leaves/falling_leave_particles.gdshader" id="11_7dh3m"]
+[ext_resource type="Texture2D" uid="uid://dnqtxpx055awm" path="res://icon.svg" id="12_0xvie"]
+[ext_resource type="Texture2D" uid="uid://c0c7042qc8yjc" path="res://assets/falling_leaf_spritehsheet.png" id="12_s0qvf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyjfk"]
 texture = ExtResource("1_uc2ty")
@@ -62,6 +66,29 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -144, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 256, 104, 0, 0, 0, 0, 512, 104, 0, 0, 0, 0, 512, 64, 0, 0, 0, 0, 576, 0, 0, 0, 0, 0, 784, 0, 0, 0, 0, 0, 800, 112, 0, 0, 0, 0, 928, 136, 0, 0, 0, 0, 928, 272, 0, 0, 0, 0, 1080, 272, 0, 0, 0, 0, 1080, 168, 0, 0, 0, 0, 1264, 168, 0, 0, 0, 0, 1264, 0, 0, 0, 0, 0, 1408, 0, 0, 0, 0, 0, 1408, 112, 0, 0, 0, 0, 1624, 112, 0, 0, 0, 0, 1848, -32, 0, 0, 0, 0, 1984, -32, 0, 0, 0, 0, 1984, 176, 0, 0, 0, 0, 2368, 176, 0, 0, 0, 0, 2368, -32, 0, 0, 0, 0, 2680, -32, 0, 0, 0, 0, 2680, -176, 0, 0, 0, 0, 2328, -176)
 }
 point_count = 25
+
+[sub_resource type="Gradient" id="Gradient_l6m26"]
+colors = PackedColorArray(0.471376, 0.824059, 0.444173, 1, 0.145832, 0.236303, 0.224613, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_buk31"]
+gradient = SubResource("Gradient_l6m26")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nsdb"]
+shader = ExtResource("11_7dh3m")
+shader_parameter/spritesheet_sampler = ExtResource("12_s0qvf")
+shader_parameter/leaf_color_sampler = SubResource("GradientTexture1D_buk31")
+
+[sub_resource type="Gradient" id="Gradient_il8bg"]
+offsets = PackedFloat32Array(0.9, 1)
+colors = PackedColorArray(0.956863, 0.956863, 0.956863, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j2fcy"]
+gradient = SubResource("Gradient_il8bg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fboc6"]
+shader = ExtResource("11_1dk3v")
+shader_parameter/spawn_width = null
+shader_parameter/alpha_time_sampler = SubResource("GradientTexture1D_j2fcy")
 
 [node name="Level" type="Node2D"]
 
@@ -236,3 +263,15 @@ lines = PackedStringArray("You can slide down a wall by jumping onto it.", "Do i
 
 [node name="croco_info_dash" parent="." instance=ExtResource("10_qsxrf")]
 position = Vector2(784, 145)
+
+[node name="FallingLeaves" type="GPUParticles2D" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_3nsdb")
+position = Vector2(457, -101)
+amount = 32
+process_material = SubResource("ShaderMaterial_fboc6")
+texture = ExtResource("12_0xvie")
+lifetime = 8.0
+preprocess = 10.0
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+local_coords = true
