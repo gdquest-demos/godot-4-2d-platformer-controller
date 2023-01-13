@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bhdxrtqgvcqop"]
+[gd_scene load_steps=32 format=3 uid="uid://bhdxrtqgvcqop"]
 
 [ext_resource type="TileSet" uid="uid://biscvhoof1cg5" path="res://assets/main_tileset.tres" id="1_5c5m1"]
 [ext_resource type="Texture2D" uid="uid://bkow0t8ktw6a8" path="res://assets/tiles/8x8_geo.png" id="1_uc2ty"]
@@ -9,11 +9,14 @@
 [ext_resource type="Script" path="res://RectEditor.gd" id="5_qfsal"]
 [ext_resource type="Script" path="res://camera.gd" id="6_aa3th"]
 [ext_resource type="PackedScene" uid="uid://brdsbllfrxj4k" path="res://Player/Player.tscn" id="7_mk5co"]
-[ext_resource type="PackedScene" path="res://World/CrocoInfo/CrocoInfo.tscn" id="10_qsxrf"]
+[ext_resource type="PackedScene" uid="uid://78d1g6rme6if" path="res://World/CrocoInfo/CrocoInfo.tscn" id="10_qsxrf"]
 [ext_resource type="Shader" path="res://World/falling_leaves/falling_leaves.gdshader" id="11_1dk3v"]
 [ext_resource type="Shader" path="res://World/falling_leaves/falling_leave_particles.gdshader" id="11_7dh3m"]
 [ext_resource type="Texture2D" uid="uid://dnqtxpx055awm" path="res://icon.svg" id="12_0xvie"]
 [ext_resource type="Texture2D" uid="uid://c0c7042qc8yjc" path="res://assets/falling_leaf_spritehsheet.png" id="12_s0qvf"]
+[ext_resource type="Material" uid="uid://bri3nfponenty" path="res://World/water/WaterMat.tres" id="15_20155"]
+[ext_resource type="Script" path="res://World/water/water.gd" id="16_6oxw4"]
+[ext_resource type="Texture2D" uid="uid://bw4txfggvec2g" path="res://World/water/wave_texture.png" id="17_qropn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyjfk"]
 texture = ExtResource("1_uc2ty")
@@ -89,6 +92,67 @@ gradient = SubResource("Gradient_il8bg")
 shader = ExtResource("11_1dk3v")
 shader_parameter/spawn_width = null
 shader_parameter/alpha_time_sampler = SubResource("GradientTexture1D_j2fcy")
+
+[sub_resource type="Shader" id="Shader_cc7ug"]
+code = "shader_type canvas_item;
+
+uniform vec3 edge_color : source_color = vec3(1.0);
+uniform vec3 highlight_color : source_color = vec3(1.0);
+uniform vec3 water_color : source_color = vec3(1.0);
+
+uniform sampler2D wave_texture_sampler : repeat_enable, filter_nearest;
+uniform float height = 1.0;
+uniform float ratio = 1.0;
+uniform float wave_scale = 32.0;
+
+
+
+vec3 swap_values(float value){
+	float values[3] = float[3] (0.0, 0.5, 1.0);
+	vec3 replace_colors[3] = vec3[3] (edge_color, highlight_color, water_color);
+	for (int i = 0; i < 5; i ++) {
+		if (distance(value, values[i]) <= 0.1){
+			return replace_colors[i];
+		}
+	}
+	return vec3(1.0);
+}
+
+void fragment() {
+	float scale = (height / wave_scale);
+	
+	float wave_y = sin(UV.x * ratio * scale * PI * 0.65 - TIME) * 0.1;
+	
+	vec4 wave_texture = texture(wave_texture_sampler, UV * vec2(1.0, 2.0) * vec2(ratio, 1.0) * scale + vec2(TIME * 0.45, wave_y));
+
+	float top_mask = 1.0 - step(-wave_y, UV.y * scale);
+	float bottom_mask = step(-wave_y + 0.45, UV.y * scale);
+
+	COLOR.a = clamp(wave_texture.a + bottom_mask - top_mask, 0.0, 1.0);
+	
+	float wave_base = clamp(wave_texture.x + bottom_mask, 0.0, 1.0);
+	
+	vec3 wave_color = swap_values(wave_base);
+	
+	float def = 0.005;
+	float half_def = def / 2.0;
+	
+	vec3 screen_color = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(0.0, sin(UV.x * ratio * scale * PI + TIME) * def + half_def)).rgb;
+	
+	COLOR.rgb = mix(screen_color, wave_color, (1.0 - float(wave_base > 0.5)) + UV.y * 0.4 + 0.6);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nrneq"]
+resource_local_to_scene = true
+shader = SubResource("Shader_cc7ug")
+shader_parameter/edge_color = Color(1, 1, 1, 1)
+shader_parameter/highlight_color = Color(0.882353, 0.937255, 1, 1)
+shader_parameter/water_color = Color(0.14902, 0.576471, 1, 1)
+shader_parameter/height = 152.0
+shader_parameter/ratio = 5.68421
+shader_parameter/wave_scale = null
+shader_parameter/wave_texture_sampler = ExtResource("17_qropn")
 
 [node name="Level" type="Node2D"]
 
@@ -275,3 +339,19 @@ lifetime = 8.0
 preprocess = 10.0
 visibility_rect = Rect2(-500, -500, 1000, 1000)
 local_coords = true
+
+[node name="Water" type="ColorRect" parent="."]
+material = ExtResource("15_20155")
+offset_left = -128.0
+offset_top = 164.0
+offset_right = 480.0
+offset_bottom = 376.0
+script = ExtResource("16_6oxw4")
+
+[node name="Water2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nrneq")
+offset_left = 480.0
+offset_top = 296.0
+offset_right = 1344.0
+offset_bottom = 448.0
+script = ExtResource("16_6oxw4")

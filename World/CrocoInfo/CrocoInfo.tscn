@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://78d1g6rme6if"]
 
 [ext_resource type="Script" path="res://World/CrocoInfo/CrocoInfo.gd" id="1_xw88f"]
 [ext_resource type="Texture2D" uid="uid://blhd2tb6ycp0o" path="res://assets/croco/idle/000.png" id="2_s3shg"]
@@ -9,7 +9,25 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j08ev"]
 animations = [{
-"frames": [ExtResource("5_oadgy"), ExtResource("4_ru76i"), ExtResource("3_3u7j0"), ExtResource("4_ru76i"), ExtResource("2_s3shg"), ExtResource("4_ru76i")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_oadgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ru76i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3u7j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ru76i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s3shg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ru76i")
+}],
 "loop": true,
 "name": &"default",
 "speed": 3.0
@@ -40,7 +58,7 @@ shape = SubResource("CircleShape2D_kdpgs")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Bubble" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 8
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
