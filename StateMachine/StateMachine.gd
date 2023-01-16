@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	state.physics_process(delta)
 
 
-func transition_to(target_state_path: String, msg: Dictionary = {}) -> void:
+func transition_to(target_state_path: String, msg := {}) -> void:
 	if not has_node(target_state_path):
 		printerr("The target state '" + target_state_path + "' doesn't exist.")
 		return

@@ -19,12 +19,12 @@ func _set_active(value):
 	if _is_active == false && bubble.active: 
 		_reset_bubble()
 		
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent):
 	if Input.is_action_just_pressed("move_down"):
-		var t = create_tween()
-		t.tween_property(sprite, "scale", Vector2(1.2,0.8), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-		t.tween_property(sprite, "scale", Vector2(0.8,1.2), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-		t.tween_property(sprite, "scale", Vector2.ONE, 0.15)
+		var tween := create_tween()
+		tween.tween_property(sprite, "scale", Vector2(1.2,0.8), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+		tween.tween_property(sprite, "scale", Vector2(0.8,1.2), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+		tween.tween_property(sprite, "scale", Vector2.ONE, 0.15)
 		
 		if _current_line == -1:
 			bubble.open(bubble_target)

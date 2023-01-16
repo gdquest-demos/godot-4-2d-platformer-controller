@@ -37,7 +37,7 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to("Movement/Air", { jumped = true, direction = wall_detector.get_direction() })
 
 
-func enter(msg: Dictionary = {}) -> void:
+func enter(msg := {}) -> void:
 	player.reset_speed()
 	skin.play_animation("Grab")
 	_timer.start()

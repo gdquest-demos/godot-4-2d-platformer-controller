@@ -27,7 +27,7 @@ func physics_process(_delta: float) -> void:
 	return
 
 
-func enter(_msg: Dictionary = {}) -> void:
+func enter(_msg := {}) -> void:
 	return
 
 

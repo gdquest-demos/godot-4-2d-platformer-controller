@@ -1,7 +1,7 @@
 extends PlayerState
 
 
-func enter(msg: Dictionary = {}) -> void:
+func enter(msg := {}) -> void:
 	player.reset_speed()
 	skin.play_animation("Die")
 	skin.connect("animation_finished", _on_PlayerSkin_animation_finished)

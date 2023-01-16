@@ -18,8 +18,8 @@ func open(target : Node2D):
 	show()
 	
 func write(line : String):
-	var t = create_tween()
-	t.tween_property(self, "scale", Vector2.ONE, 0.1).from(Vector2.ONE * 0.9).set_trans(Tween.TRANS_BACK)
+	var tween := create_tween()
+	tween.tween_property(self, "scale", Vector2.ONE, 0.1).from(Vector2.ONE * 0.9).set_trans(Tween.TRANS_BACK)
 	label.text = line
 	# Need to reset size so main container shrinks back?
 	size = Vector2.ZERO
@@ -27,9 +27,9 @@ func write(line : String):
 func close():
 	active = false
 	set_process(false)
-	var t = create_tween()
-	t.tween_property(self, "scale", Vector2.ONE * 0.6, 0.1).from(Vector2.ONE).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
-	await t.finished
+	var tween := create_tween()
+	tween.tween_property(self, "scale", Vector2.ONE * 0.6, 0.1).from(Vector2.ONE).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+	await tween.finished
 	if !active: hide()
 
 func _process(_delta):

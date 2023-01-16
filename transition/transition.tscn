@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://transition/transition.gdshader" id="1_cfuox"]
 [ext_resource type="Texture2D" uid="uid://etptsmjmckww" path="res://Transition/star-sdf.png" id="2_6udye"]
-[ext_resource type="Script" path="res://Transition/Transition.gd" id="3_xdw12"]
+[ext_resource type="Script" path="res://transition/transition.gd" id="3_xdw12"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_njft8"]
 shader = ExtResource("1_cfuox")

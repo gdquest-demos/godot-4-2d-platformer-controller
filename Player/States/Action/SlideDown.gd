@@ -21,6 +21,6 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to("Action/Dash", { direction = input_direction.normalized() })
 
 
-func enter(msg: Dictionary = {}) -> void:
+func enter(msg := {}) -> void:
 	player.set_can_dash(true)
 	gameplay_events.emit_signal("dash_enabled")

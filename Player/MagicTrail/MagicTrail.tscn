@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://bg1lx25qbqhn0"]
 
 [ext_resource type="Shader" path="res://Player/MagicTrail/MagicTrail.gdshader" id="1_sx7ky"]
 [ext_resource type="Script" path="res://Player/MagicTrail/MagicTrail.gd" id="2_f3yj5"]

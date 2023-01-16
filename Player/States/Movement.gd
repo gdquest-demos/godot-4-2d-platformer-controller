@@ -21,7 +21,7 @@ func physics_process(delta: float) -> void:
 #		_state_machine.transition_to("Action/Climb")
 
 
-func enter(msg: Dictionary = {}) -> void:
+func enter(msg := {}) -> void:
 	if "from_climb" in msg:
 		_climb_cooldown_timer.start()
 	

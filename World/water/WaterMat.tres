@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bri3nfponenty"]
 
-[ext_resource type="Texture2D" uid="uid://bw4txfggvec2g" path="res://World/Water/wave_texture.png" id="2_pxpsk"]
+[ext_resource type="Texture2D" uid="uid://bw4txfggvec2g" path="res://World/water/wave_texture.png" id="2_pxpsk"]
 
 [sub_resource type="Shader" id="Shader_cc7ug"]
 code = "shader_type canvas_item;

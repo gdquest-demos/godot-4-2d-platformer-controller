@@ -1,7 +1,7 @@
 extends PlayerState
 
 
-func enter(msg: Dictionary = {}) -> void:
+func enter(msg := {}) -> void:
 	vfx.spawn_explosion()
 	await vfx.explosion_finished
 	

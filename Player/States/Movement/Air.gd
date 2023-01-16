@@ -6,7 +6,7 @@ var _jump_released: bool = false
 
 
 func physics_process(delta: float) -> void:
-	var x_input_direction: float = sign(Input.get_axis("move_left", "move_right")) # Using sign(_parent.input_direction.x) doesn't work
+	var x_input_direction: float = sign(Input.get_axis("move_left", "move_right"))
 	
 	wall_detector.set_direction(sign(player.velocity.x))
 	
@@ -41,7 +41,7 @@ func physics_process(delta: float) -> void:
 	_parent.physics_process(delta)
 
 
-func enter(msg: Dictionary = {}) -> void:
+func enter(msg := {}) -> void:
 	player.unset_snap()
 	_parent.enter(msg)
 	

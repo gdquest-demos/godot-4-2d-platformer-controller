@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://etptsmjmckww"
-path.s3tc="res://.godot/imported/star-sdf.png-f62164ee35786765893edaaf62d55bd2.s3tc.ctex"
-path.etc2="res://.godot/imported/star-sdf.png-f62164ee35786765893edaaf62d55bd2.etc2.ctex"
+path.s3tc="res://.godot/imported/star-sdf.png-1c0aef0b101e61c3dc1e0731cb4ac9fd.s3tc.ctex"
+path.etc2="res://.godot/imported/star-sdf.png-1c0aef0b101e61c3dc1e0731cb4ac9fd.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Transition/star-sdf.png"
-dest_files=["res://.godot/imported/star-sdf.png-f62164ee35786765893edaaf62d55bd2.s3tc.ctex", "res://.godot/imported/star-sdf.png-f62164ee35786765893edaaf62d55bd2.etc2.ctex"]
+source_file="res://transition/star-sdf.png"
+dest_files=["res://.godot/imported/star-sdf.png-1c0aef0b101e61c3dc1e0731cb4ac9fd.s3tc.ctex", "res://.godot/imported/star-sdf.png-1c0aef0b101e61c3dc1e0731cb4ac9fd.etc2.ctex"]
 
 [params]
 

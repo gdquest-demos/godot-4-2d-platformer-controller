@@ -27,7 +27,7 @@ func physics_process(delta: float) -> void:
 	_parent.physics_process(delta)
 
 
-func enter(msg: Dictionary = {}) -> void:
+func enter(msg := {}) -> void:
 	player.set_snap()
 	player.set_can_dash(true)
 	

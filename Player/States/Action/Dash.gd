@@ -11,11 +11,11 @@ func _ready() -> void:
 
 
 func physics_process(delta: float) -> void:
-	if player.velocity.y < 0:
+	if player.velocity.y < 0.0:
 		player.apply_gravity(delta)
 
 
-func enter(msg: Dictionary = {}) -> void:
+func enter(msg := {}) -> void:
 	if msg.direction == Vector2.ZERO:
 		_direction = Vector2.RIGHT * skin.get_facing_direction()
 	else:
@@ -44,11 +44,11 @@ func exit() -> void:
 
 func _set_dash_effect(value: bool) -> void:
 	var direction: Array = [1.0, 0.0]
-	var t: Tween = create_tween()
+	var tween: Tween = create_tween()
 	if value:
-		t.tween_method(player.skin.set_rainbow_intensity, 0.0, 1.0, 0.1)
+		tween.tween_method(player.skin.set_rainbow_intensity, 0.0, 1.0, 0.1)
 	else:
-		t.tween_method(player.skin.set_rainbow_intensity, 1.0, 0.0, 0.25).set_delay(0.1)
+		tween.tween_method(player.skin.set_rainbow_intensity, 1.0, 0.0, 0.25).set_delay(0.1)
 	magic_trail.set_active(value)
 
 

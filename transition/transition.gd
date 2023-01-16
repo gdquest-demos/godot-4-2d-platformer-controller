@@ -24,17 +24,17 @@ func set_ratio():
 
 
 func fade_in():
-	var t = create_tween()
-	t.tween_property(material, "shader_parameter/scale", 0.2, 0.2).from(0.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	t.tween_property(material, "shader_parameter/scale", 4.0, 0.5).from(0.15).set_delay(0.25).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
-	await t.finished
+	var tween := create_tween()
+	tween.tween_property(material, "shader_parameter/scale", 0.2, 0.2).from(0.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(material, "shader_parameter/scale", 4.0, 0.5).from(0.15).set_delay(0.25).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	await tween.finished
 	emit_signal("transition_finished")
 	
 	
 func fade_out():
-	var t = create_tween()
-	t.set_parallel(true)
-	t.tween_property(material, "shader_parameter/rotation", 0.0, 1.5).from(TAU).set_trans(Tween.TRANS_SINE)
-	t.tween_property(material, "shader_parameter/scale", 0.0, 1.5).from(4.0).set_trans(Tween.TRANS_SINE)
-	await t.finished
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(material, "shader_parameter/rotation", 0.0, 1.5).from(TAU).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(material, "shader_parameter/scale", 0.0, 1.5).from(4.0).set_trans(Tween.TRANS_SINE)
+	await tween.finished
 	emit_signal("transition_finished")

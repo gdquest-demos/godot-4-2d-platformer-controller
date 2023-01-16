@@ -1,47 +1,49 @@
 extends Line2D
 class_name MagicTrail
 
-@export var time_curve: Curve 
+const POINTS_COUNT := 10
 
-# point in global space
-var p_g: PackedVector2Array = []
-var resolution := 10
-var _is_active = null : set = set_active
+@export var time_curve: Curve
 
-@onready var particles = $GPUParticles2D
+var is_active := false : set = set_active
+var _points_global: PackedVector2Array = []
+
+@onready var _particles = $GPUParticles2D
 
 
 func _ready() -> void:
 	set_active(false)
 	_reset_points()
 
+
 func _process(delta: float) -> void:
-	var local_p : PackedVector2Array = []
-	for i in resolution:
-		p_g[i] = lerp(p_g[i], global_position, time_curve.sample(remap(i, 0, resolution, 1.0, 0.0)))
-		local_p.append(to_local(p_g[i]))
-	points = local_p
+	var points_local := []
+	for i in POINTS_COUNT:
+		_points_global[i] = lerp(_points_global[i], global_position, time_curve.sample(remap(i, 0, POINTS_COUNT, 1.0, 0.0)))
+		points_local.append(to_local(_points_global[i]))
+	points = points_local
 
 
-func set_active(value) -> void:
-	if _is_active == value: 
+func set_active(value: bool) -> void:
+	if is_active == value:
 		return
 	
-	_is_active = value
-	particles.emitting = _is_active
+	is_active = value
+	_particles.emitting = is_active
 	
-	var t = create_tween()
-	if _is_active:
-		t.tween_property(self, "modulate:a", 1.0, 0.1)
+	var tween = create_tween()
+	if is_active:
+		tween.tween_property(self, "modulate:a", 1.0, 0.1)
 	else:
-		t.tween_property(self, "modulate:a", 0.0, 0.5)
-		await t.finished
-		if !_is_active:
+		tween.tween_property(self, "modulate:a", 0.0, 0.5)
+		await tween.finished
+		if not is_active:
 			_reset_points()
+
 
 func _reset_points() -> void:
 	points = []
-	p_g = []
-	for i in resolution:
-		p_g.append(global_position)
+	_points_global = []
+	for i in POINTS_COUNT:
+		_points_global.append(global_position)
 		add_point(Vector2.ZERO)
