@@ -22,7 +22,7 @@ func enter(msg := {}) -> void:
 		_direction = msg.direction
 	player.set_velocity(Vector2.LEFT * player.jump_speed * sign(_direction.x) + Vector2.UP * player.jump_speed * sign(_direction.y))
 	player.set_direction(_direction.x)
-	gameplay_events.emit_signal("dash_started")
+	GameplayEvents.emit_signal("dash_started")
 	
 	skin.set_direction(_direction.x)
 	skin.play_animation("Dash")
@@ -36,7 +36,7 @@ func enter(msg := {}) -> void:
 
 
 func exit() -> void:
-	gameplay_events.emit_signal("dash_ended")
+	GameplayEvents.emit_signal("dash_ended")
 	dash_zone_detector.disconnect("area_entered", _on_DashZoneDetector_area_entered)
 	_timer.stop()
 	_set_dash_effect(false)

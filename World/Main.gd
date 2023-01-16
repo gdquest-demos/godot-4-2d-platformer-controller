@@ -1,7 +1,5 @@
 extends Node
 
-@export var gameplay_events: GameplayEvents
-
 @onready var player: Player
 @onready var level_holder : Node = $LevelHolder
 @onready var transition: Transition = $UI/Transition
@@ -16,7 +14,7 @@ func _ready() -> void:
 	player = level.get_node("Player")
 	player.position = spawn_pos
 	
-	gameplay_events.connect("player_died", _on_GameplayEvents_player_died)
+	GameplayEvents.connect("player_died", _on_GameplayEvents_player_died)
 
 
 func _on_GameplayEvents_player_died() -> void:

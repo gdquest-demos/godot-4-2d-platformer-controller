@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl1k5rcvurfek"]
+[gd_scene load_steps=4 format=3 uid="uid://bl1k5rcvurfek"]
 
 [ext_resource type="Script" path="res://World/DashZone/DashZone.gd" id="1_kokn7"]
-[ext_resource type="Resource" uid="uid://blqcviaifmvrs" path="res://GameEvents/GameplayEvents.tres" id="2_xc7kr"]
-[ext_resource type="Material" uid="uid://1gnstwrcbp6y" path="res://World/DashZone/dash_zone_mat.tres" id="3_orhy7"]
+[ext_resource type="Material" uid="uid://ef6jwylu67hc" path="res://World/DashZone/dash_zone_mat.tres" id="3_orhy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kh8xp"]
 resource_local_to_scene = true
@@ -12,7 +11,6 @@ size = Vector2(100, 100)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_kokn7")
-gameplay_events = ExtResource("2_xc7kr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

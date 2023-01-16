@@ -7,13 +7,13 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg := {}) -> void:
-	gameplay_events.emit_signal("dash_started")
+	GameplayEvents.emit_signal("dash_started")
 	player.set_velocity(Vector2.LEFT * player.jump_speed * sign(msg.direction.x) + Vector2.UP * player.jump_speed * sign(msg.direction.y))
 	dash_zone_detector.connect("area_exited", _on_DashZoneDetector_area_exited)
 
 
 func exit() -> void:
-	gameplay_events.emit_signal("dash_ended")
+	GameplayEvents.emit_signal("dash_ended")
 	dash_zone_detector.disconnect("area_exited", _on_DashZoneDetector_area_exited)
 	player.set_can_dash(true)
 

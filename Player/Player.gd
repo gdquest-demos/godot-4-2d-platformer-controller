@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Player
 
-@export var gameplay_events: GameplayEvents
 @export var skin_path: NodePath
 
 @export var acceleration := 700

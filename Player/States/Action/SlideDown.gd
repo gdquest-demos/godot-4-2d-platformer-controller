@@ -19,4 +19,4 @@ func physics_process(delta: float) -> void:
 
 func enter(msg := {}) -> void:
 	player.set_can_dash(true)
-	gameplay_events.emit_signal("dash_enabled")
+	GameplayEvents.emit_signal("dash_enabled")

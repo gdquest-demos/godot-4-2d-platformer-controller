@@ -9,11 +9,6 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "Resource",
-"class": &"GameplayEvents",
-"language": &"GDScript",
-"path": "res://GameEvents/GameplayEvents.gd"
-}, {
 "base": "Line2D",
 "class": &"MagicTrail",
 "language": &"GDScript",
@@ -47,7 +42,7 @@ _global_script_classes=[{
 "base": "ColorRect",
 "class": &"Transition",
 "language": &"GDScript",
-"path": "res://transition/transition.gd"
+"path": "res://Transition/transition.gd"
 }, {
 "base": "Node2D",
 "class": &"VFX",
@@ -60,7 +55,6 @@ _global_script_classes=[{
 "path": "res://Player/WallDetector.gd"
 }]
 _global_script_class_icons={
-"GameplayEvents": "",
 "MagicTrail": "",
 "Player": "",
 "PlayerSkin": "",
@@ -78,6 +72,10 @@ config/name="2D Platformer Controller"
 run/main_scene="res://World/Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameplayEvents="*res://Autoload/GameplayEvents.gd"
 
 [display]
 

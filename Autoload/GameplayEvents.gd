@@ -1,5 +1,4 @@
-extends Resource
-class_name GameplayEvents
+extends Node
 
 signal dash_enabled
 signal dash_started

@@ -1,14 +1,12 @@
 extends Area2D
 
-@export var gameplay_events: GameplayEvents
-
 @onready var _collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var _sprite: AnimatedSprite2D = $Sprite2D
 @onready var _timer: Timer = $Timer
 
 
 func _ready() -> void:
-	gameplay_events.connect("dash_enabled", _on_GameplayEvents_dash_enabled)
+	GameplayEvents.connect("dash_enabled", _on_GameplayEvents_dash_enabled)
 	_timer.connect("timeout", _on_Timer_timeout)
 
 
