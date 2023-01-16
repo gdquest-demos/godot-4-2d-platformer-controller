@@ -15,30 +15,21 @@ func physics_process(delta: float) -> void:
 
 	if wall_detector.is_against_wall() and x_input_direction == wall_detector.get_direction() and player.velocity.y > 0:
 		_state_machine.transition_to("Action/SlideDown")
-		return
-
-	if Input.is_action_just_pressed("dash") and player.can_dash:
+	elif Input.is_action_just_pressed("dash") and player.can_dash:
 		player.set_can_dash(false)
 		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction.normalized() })
-		return
-
-	if player.is_on_floor():
+	elif player.is_on_floor():
 		skin.play_tween_touch_ground()
 		_state_machine.transition_to("Movement/Ground")
-		return
-	
-	if Input.is_action_just_pressed("jump"):
+	elif Input.is_action_just_pressed("jump"):
 		if _coyote_timer.time_left > 0:
 			_state_machine.transition_to("Movement/Air", { jumped = true })
-			return
-	
-	if Input.is_action_just_released("jump"):
+	elif Input.is_action_just_released("jump"):
 		if player.velocity.y < 0 and player.velocity.y < -player.jump_cut_speed and not _jump_released:
 			player.jump(player.jump_cut_speed)
 			_jump_released = true
-			return
-	
-	_parent.physics_process(delta)
+	else:
+		_parent.physics_process(delta)
 
 
 func enter(msg := {}) -> void:

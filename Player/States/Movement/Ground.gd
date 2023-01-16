@@ -15,16 +15,13 @@ func physics_process(delta: float) -> void:
 
 	if not player.is_on_floor():
 		_state_machine.transition_to("Movement/Air")
-		return
 	elif Input.is_action_just_pressed("jump"):
 		_state_machine.transition_to("Movement/Air", { jumped = true })
-		return
 	elif Input.is_action_just_pressed("dash") and _dash_cooldown_timer.is_stopped():
 		player.set_can_dash(false)
 		_state_machine.transition_to("Action/Dash", { direction = _parent.input_direction.normalized() })
-		return
-		
-	_parent.physics_process(delta)
+	else:
+		_parent.physics_process(delta)
 
 
 func enter(msg := {}) -> void:

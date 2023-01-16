@@ -31,9 +31,7 @@ func physics_process(delta: float) -> void:
 	
 	if not wall_detector.is_against_wall():
 		_state_machine.transition_to("Movement/Air", { climbed = true })
-		return
-	
-	if Input.is_action_just_pressed("jump"):
+	elif Input.is_action_just_pressed("jump"):
 		_state_machine.transition_to("Movement/Air", { jumped = true, direction = wall_detector.get_direction() })
 
 
