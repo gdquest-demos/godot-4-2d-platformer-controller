@@ -42,7 +42,7 @@ _global_script_classes=[{
 "base": "ColorRect",
 "class": &"Transition",
 "language": &"GDScript",
-"path": "res://Transition/transition.gd"
+"path": "res://transition/transition.gd"
 }, {
 "base": "Node2D",
 "class": &"VFX",
@@ -71,7 +71,7 @@ _global_script_class_icons={
 config/name="2D Platformer Controller"
 run/main_scene="res://World/Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icon_platformer_small.png"
 
 [autoload]
 
