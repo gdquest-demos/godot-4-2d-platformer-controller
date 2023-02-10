@@ -1,10 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://bhdxrtqgvcqop"]
+[gd_scene load_steps=31 format=3 uid="uid://bhdxrtqgvcqop"]
 
 [ext_resource type="TileSet" uid="uid://biscvhoof1cg5" path="res://assets/main_tileset.tres" id="1_5c5m1"]
 [ext_resource type="Texture2D" uid="uid://bkow0t8ktw6a8" path="res://assets/tiles/8x8_geo.png" id="1_uc2ty"]
 [ext_resource type="PackedScene" uid="uid://dual15nkjm5g6" path="res://World/Checkpoint/Checkpoint.tscn" id="2_8dmh7"]
 [ext_resource type="Texture2D" uid="uid://djewvqhkolux0" path="res://assets/tiles/16x16_geo.png" id="2_l7b0b"]
-[ext_resource type="PackedScene" uid="uid://cuhh8ixkpems1" path="res://World/DashGem/DashGem.tscn" id="3_3w2hf"]
+[ext_resource type="PackedScene" uid="uid://cm235hue6gbmi" path="res://World/DashGem/DashGem.tscn" id="3_3w2hf"]
 [ext_resource type="PackedScene" uid="uid://bl1k5rcvurfek" path="res://World/DashZone/DashZone.tscn" id="4_gblkx"]
 [ext_resource type="Script" path="res://RectEditor.gd" id="5_qfsal"]
 [ext_resource type="Script" path="res://camera.gd" id="6_aa3th"]
@@ -14,9 +14,8 @@
 [ext_resource type="Shader" path="res://World/falling_leaves/falling_leave_particles.gdshader" id="11_7dh3m"]
 [ext_resource type="Texture2D" uid="uid://dnqtxpx055awm" path="res://icon.svg" id="12_0xvie"]
 [ext_resource type="Texture2D" uid="uid://c0c7042qc8yjc" path="res://assets/falling_leaf_spritehsheet.png" id="12_s0qvf"]
-[ext_resource type="Material" uid="uid://bri3nfponenty" path="res://World/Water/WaterMat.tres" id="15_20155"]
 [ext_resource type="Script" path="res://World/water/water.gd" id="16_6oxw4"]
-[ext_resource type="Texture2D" uid="uid://bw4txfggvec2g" path="res://World/Water/wave_texture.png" id="17_qropn"]
+[ext_resource type="Texture2D" uid="uid://bw4txfggvec2g" path="res://World/water/wave_texture.png" id="17_qropn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyjfk"]
 texture = ExtResource("1_uc2ty")
@@ -90,12 +89,12 @@ gradient = SubResource("Gradient_il8bg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fboc6"]
 shader = ExtResource("11_1dk3v")
-shader_parameter/spawn_width = null
+shader_parameter/spawn_width = 400.0
 shader_parameter/alpha_time_sampler = SubResource("GradientTexture1D_j2fcy")
 
 [sub_resource type="Shader" id="Shader_cc7ug"]
 code = "shader_type canvas_item;
-
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform vec3 edge_color : source_color = vec3(1.0);
 uniform vec3 highlight_color : source_color = vec3(1.0);
 uniform vec3 water_color : source_color = vec3(1.0);
@@ -149,9 +148,9 @@ shader = SubResource("Shader_cc7ug")
 shader_parameter/edge_color = Color(1, 1, 1, 1)
 shader_parameter/highlight_color = Color(0.882353, 0.937255, 1, 1)
 shader_parameter/water_color = Color(0.14902, 0.576471, 1, 1)
-shader_parameter/height = 152.0
-shader_parameter/ratio = 5.68421
-shader_parameter/wave_scale = null
+shader_parameter/height = 232.0
+shader_parameter/ratio = 1.01293
+shader_parameter/wave_scale = 32.0
 shader_parameter/wave_texture_sampler = ExtResource("17_qropn")
 
 [node name="Level" type="Node2D"]
@@ -309,7 +308,6 @@ script = ExtResource("5_qfsal")
 size = Vector2(2900, 610)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target", "path", "rect_limit")]
-current = true
 zoom = Vector2(4, 4)
 process_callback = 0
 position_smoothing_enabled = true
@@ -324,10 +322,11 @@ rect_limit = NodePath("../RectLimit")
 
 [node name="croco_info_walljump" parent="." instance=ExtResource("10_qsxrf")]
 position = Vector2(488, 145)
-lines = PackedStringArray("You can slide down a wall by jumping onto it.", "Do it in a succession of jumps and you get to wall jump!", "Sadly, I lack opposable thumbs, so I can\'t do it.")
+lines = []
 
 [node name="croco_info_dash" parent="." instance=ExtResource("10_qsxrf")]
 position = Vector2(784, 145)
+lines = []
 
 [node name="FallingLeaves" type="GPUParticles2D" parent="."]
 z_index = 10
@@ -341,18 +340,18 @@ preprocess = 10.0
 visibility_rect = Rect2(-500, -500, 1000, 1000)
 local_coords = true
 
-[node name="Water" type="ColorRect" parent="."]
-material = ExtResource("15_20155")
-offset_left = -128.0
-offset_top = 164.0
-offset_right = 480.0
-offset_bottom = 376.0
-script = ExtResource("16_6oxw4")
-
 [node name="Water2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_nrneq")
 offset_left = 480.0
 offset_top = 296.0
 offset_right = 1344.0
 offset_bottom = 448.0
+script = ExtResource("16_6oxw4")
+
+[node name="Water3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nrneq")
+offset_left = 230.0
+offset_top = 162.0
+offset_right = 465.0
+offset_bottom = 394.0
 script = ExtResource("16_6oxw4")

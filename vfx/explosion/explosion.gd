@@ -6,7 +6,7 @@ signal finished
 @onready var sparkes : GPUParticles2D = $Sparkes
 
 func _ready():
-	var animations: Array = sprite.frames.get_animation_names()
+	var animations: Array = sprite.sprite_frames.get_animation_names()
 	sprite.play(animations.pick_random())
 	sparkes.emitting = true
 	await sprite.animation_finished

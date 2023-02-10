@@ -1,11 +1,11 @@
+@icon("State.svg")
 extends Node
 class_name State 
-@icon("State.svg")
 
 var is_active: bool = true : set = set_is_active
 var _parent: State = null
 
-@warning_ignore(unused_private_class_variable)
+@warning_ignore("unused_private_class_variable")
 @onready var _state_machine: StateMachine = _get_state_machine(self)
 
 

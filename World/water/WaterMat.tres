@@ -1,9 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bri3nfponenty"]
-
-[ext_resource type="Texture2D" uid="uid://bw4txfggvec2g" path="res://World/Water/wave_texture.png" id="2_pxpsk"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bri3nfponenty"]
 
 [sub_resource type="Shader" id="Shader_cc7ug"]
 code = "shader_type canvas_item;
+
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 uniform vec3 edge_color : source_color = vec3(1.0);
 uniform vec3 highlight_color : source_color = vec3(1.0);
@@ -56,9 +56,8 @@ void fragment() {
 resource_local_to_scene = true
 shader = SubResource("Shader_cc7ug")
 shader_parameter/edge_color = Color(1, 1, 1, 1)
-shader_parameter/highlight_color = Color(0.882353, 0.937255, 1, 1)
-shader_parameter/water_color = Color(0.14902, 0.576471, 1, 1)
-shader_parameter/height = 212.0
-shader_parameter/ratio = 2.86792
-shader_parameter/wave_scale = null
-shader_parameter/wave_texture_sampler = ExtResource("2_pxpsk")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/water_color = Color(1, 1, 1, 1)
+shader_parameter/height = 1.0
+shader_parameter/ratio = 1.0
+shader_parameter/wave_scale = 32.0

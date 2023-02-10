@@ -1,6 +1,6 @@
+@icon("StateMachine.svg")
 extends Node
 class_name StateMachine
-@icon("StateMachine.svg")
 
 @export var initial_state: NodePath
 

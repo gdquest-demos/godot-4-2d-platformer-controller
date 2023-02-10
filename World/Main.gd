@@ -2,7 +2,7 @@ extends Node
 
 @onready var player: Player
 @onready var level_holder : Node = $LevelHolder
-@onready var transition: Transition = $UI/Transition
+@onready var transition = $UI/Transition
 
 @export var level_scene: PackedScene
 

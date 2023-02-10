@@ -1,5 +1,7 @@
 shader_type canvas_item;
 
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture;
+
 uniform float screen_ratio = 1.0;
 uniform float ratio = 1.0;
 uniform sampler2D sparkles_noise_sampler : filter_nearest, repeat_enable;
